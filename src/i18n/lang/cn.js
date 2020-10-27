@@ -39,7 +39,7 @@ const cn = {
     userfond: "展会申报",
     detafond: "细节申报",
     easyfond: "简易申报",
-    message:"消息邮箱",
+    message:"信息系统",
     haveRead: "已读信息",
     notRead: "未读信息",
     summary: "上报总结",
