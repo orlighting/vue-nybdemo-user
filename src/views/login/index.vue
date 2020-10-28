@@ -76,6 +76,7 @@ export default {
         })
         return false
       } else {
+        //收发消息示例
         this.$axios
           .post("/login", {
             id: this.loginForm.id,
