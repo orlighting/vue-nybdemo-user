@@ -2,7 +2,7 @@
   <div>
     <el-aside id="asideNav">
       <div class="logo-name">
-        <p v-if="$store.getters.logoShow">Ei</p>
+        <p v-if="$store.getters.logoShow">Exi</p>
         <p v-else>展会信息管理系统</p>
       </div>
 

@@ -2,8 +2,8 @@
   <div>
     <el-aside id="asideNav">
       <div class="logo-name">
-        <p v-if="$store.getters.logoShow">Ei</p>
-        <p v-else>展会信息管理系统</p>
+        <p v-if="$store.getters.logoShow">XU</p>
+        <p v-else>展会信息管理系统test</p>
       </div>
 
       <div class="sysLogo" style="color: rgba(255,255,255,0.7)">
