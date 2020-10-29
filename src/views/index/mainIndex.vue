@@ -1,8 +1,8 @@
 <template>
   <div>
-    <el-row :gutter=20>
+    <el-row :gutter="20">
 
-      <el-col span=12>
+     <el-col :span="12">
 
       </el-col>
 
@@ -22,6 +22,8 @@
         </div>
       </div>
 
+
+			<exhi-list class="exhiList"></exhi-list>
     </el-row>
 
 
@@ -32,9 +34,13 @@
 <script>
 
 import Cookies from "js-cookie";
+import exhiList from "../../components/common/exhiList/exhiList.vue"
 
 export default {
   name: "mainIndex",
+	components:{
+		exhiList
+	},
   mounted () {
     this.selfAdaption()
   },
@@ -86,7 +92,7 @@ export default {
   },
 
   destroyed () {
-    webSocket.close()
+
   },
 
 

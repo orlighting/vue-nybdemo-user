@@ -33,15 +33,15 @@
             <label class="kindsfont">二、办展依据</label>
           </div>
 
-          <el-row gutter=0>
-            <el-col span=12>
+          <el-row :gutter="0">
+            <el-col :span="12">
               <el-form-item>
                 <label>批准单位</label>
                 <el-input type="text" v-model="declareForm.authobj" auto-complete="off"
                           placeholder=""></el-input>
               </el-form-item>
             </el-col>
-            <el-col span=12>
+            <el-col :span="12">
               <el-form-item>
                 <label>批准文号</label>
                 <el-input type="text" v-model="declareForm.authnum" auto-complete="off"
@@ -54,15 +54,15 @@
             <label class="kindsfont">三、举办情况</label>
           </div>
 
-          <el-row gutter=0>
-            <el-col span=17>
+          <el-row :gutter="0">
+            <el-col :span="17">
               <el-form-item>
                 <label>举办地点</label>
                 <el-input type="text" v-model="declareForm.hostpls" auto-complete="off"
                           placeholder=""></el-input>
               </el-form-item>
             </el-col>
-            <el-col span=7>
+            <el-col :span="7">
               <el-form-item>
                 <label>举办时间</label>
                 <el-input type="date" v-model="declareForm.hosttime" auto-complete="off"
@@ -72,14 +72,14 @@
           </el-row>
 
           <el-row>
-            <el-col span=12>
+            <el-col :span="12">
               <el-form-item>
                 <label>举办周期</label>
                 <el-input type="text" v-model="declareForm.hostcrlc" auto-complete="off"
                           placeholder=""></el-input>
               </el-form-item>
             </el-col>
-            <el-col span=12>
+            <el-col :span="12">
               <el-form-item>
                 <label>举办面积</label>
                 <el-input type="text" v-model="declareForm.hostarea" auto-complete="off"
@@ -96,11 +96,11 @@
                       placeholder=""></el-input>
           </el-form-item>
 
-          <el-row gutter=0>
-            <el-col span=12>
+          <el-row :gutter="0">
+            <el-col :span="12">
               <el-form-item>
                 <p><label>参展商来源</label></p>
-                <el-col span=12>
+                <el-col :span="12">
                   <p>
                     <span>国内：</span>
                     <input id="view1" style="width: 40px" type="number" min="0" max="100" v-model="declareForm.expofrom1" auto-complete="off"
@@ -108,7 +108,7 @@
                     <span>%</span>
                   </p>
                 </el-col>
-                <el-col span=12>
+                <el-col :span="12">
                   <p>
                     <span>海外：</span>
                     <input id="view2" style="width: 40px" type="number" min="0" max="100"  v-model="declareForm.expofrom2" auto-complete="off"
@@ -119,21 +119,21 @@
 
               </el-form-item>
             </el-col>
-            <el-col span=12>
+            <el-col :span="12">
               <el-form-item>
                 <p><label>观众构成</label></p>
-                <el-row gutter=0>
-                  <el-col span=2>
+                <el-row :gutter="0">
+                  <el-col :span="2">
                     <div><br></div>
                   </el-col>
-                  <el-col span=12>
+                  <el-col :span="12">
                     <p style="font-size: 10px">
                       <label style="vertical-align:middle;">是否有采购商参加</label>
                       <input style="vertical-align:middle;" type="checkbox" v-model="declareForm.viewfrom1" name="views" auto-complete="off"
                              placeholder=""></input>
                     </p>
                   </el-col>
-                  <el-col span=8>
+                  <el-col :span="8">
                     <p style="font-size: 10px">
                       <label style="vertical-align:middle;">是否有消费者参加</label>
                       <input style="vertical-align:middle;" type="checkbox" v-model="declareForm.viewfrom2" name="views" auto-complete="off"
@@ -185,14 +185,14 @@
 
           <el-form-item>
             <p><label>领导出席情况</label></p>
-            <el-col span=12>
+            <el-col :span="12">
               <p style="font-size: 10px">
                 <label style="vertical-align:middle;">是否邀请党和国家领导人出席</label>
                 <input style="vertical-align:middle;" type="checkbox" v-model="declareForm.leaderN" name="leaders" auto-complete="off"
                        placeholder=""></input>
               </p>
             </el-col>
-            <el-col span=12>
+            <el-col :span="12">
               <p style="font-size: 10px">
                 <label style="vertical-align:middle;">是否邀请境外部级以上政要出席</label>
                 <input style="vertical-align:middle;" type="checkbox" v-model="declareForm.leaderF" name="leaders" auto-complete="off"

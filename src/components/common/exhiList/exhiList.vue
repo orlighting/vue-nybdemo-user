@@ -1,7 +1,6 @@
 <template>
-	<div class="exhiList" v-for="(item, index) in exhiList">
-		<exhi-list-item :exhiListItem="item"></exhi-list-item>
-		
+	<div class="exhiList" >
+		<exhi-list-item v-for="item in exhiList" :exhiListItem="item" class="exhi-list-item"/>
 	</div>
 </template>
 
@@ -11,12 +10,15 @@
 	import {getExhiState} from "../../../network/exhiState.js"
 	export default{
 		name: "exhiList",
-		data:{
-			exhiList = []
-			
-		},
+    data() {
+      return {
+				exhiList: []
+
+
+      }
+    },
 		components:{
-			getExhiState
+			exhiListItem,
 		},
 		created() {
 			getExhiState().then(res => {

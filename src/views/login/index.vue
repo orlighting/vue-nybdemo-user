@@ -108,7 +108,7 @@ export default {
 
   },
   mounted () {
-    this.message()
+    // this.message()
   }
 }
 </script>

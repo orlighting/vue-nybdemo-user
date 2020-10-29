@@ -3,8 +3,8 @@
 
     <div class="card bbxx" style="width: 1000px">
       <div class="chartUser">
-
-        <el-form :model="EasyForm" status-icon label-width="30px" class="demo-ruleForm" style="padding-right: 30px">
+				//EasyForm?
+        <el-form :model="easyForm" status-icon label-width="30px" class="demo-ruleForm" style="padding-right: 30px">
           <div class="helpinfo">
             <p><span class="wrtext">本申报适用于已加入展会计划的申报！未加入计划的请使用细节申报！</span></p>
             <p><font class="hptext">请认真填写展会活动信息，所有选项均为必填，没有请填无，提交后未经审核无法修改</font></p>
@@ -64,7 +64,6 @@
 <script scope>
 export default {
   name: "easyfont",
-
   data(){
     return{
       easyForm:{

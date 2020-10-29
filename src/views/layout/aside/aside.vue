@@ -7,7 +7,7 @@
       </div>
 
       <div class="sysLogo" style="color: rgba(255,255,255,0.7)">
-        <icon class="fa fa-eercast fa-5x"></icon>
+        <div class="fa fa-eercast fa-5x"></div>
       </div>
 
 
@@ -50,7 +50,7 @@ import menuTree from "./menuTree"
 export default {
   name: "asideNav",
   components: {
-    menuTree
+    menuTree,
   },
   watch: {
     // 监听浏览器直接输入路由，将此路由添加到tabnavBox
@@ -65,7 +65,7 @@ export default {
       let router = this.$store.getters.routers
       let name = ""
       let navTitle = function (path, routerARR) {
-        for (let i = 0; i < routerARR.length; i++) {
+        for (let i = 0; i < routerARR.length - 1; i++) {
           if (routerARR[i].children.length > 0 || routerARR[i].path === path) {
             if (routerARR[i].path === path && routerARR[i].children.length < 1) {
               name = routerARR[i].name
