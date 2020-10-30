@@ -15,17 +15,17 @@
           </div>
           <el-form-item style="margin-top: 20px">
             <label>展会名称</label>
-            <el-input type="text" v-model="declareForm.exponame" auto-complete="off"
+            <el-input type="text" ref="exponame" v-model="declareForm.exponame" auto-complete="off"
                       placeholder=""></el-input>
           </el-form-item>
           <el-form-item>
             <label>主办单位</label>
-            <el-input type="text" v-model="declareForm.hostcomp" auto-complete="off"
+            <el-input type="text" ref="hostcomp" v-model="declareForm.hostcomp" auto-complete="off"
                       placeholder=""></el-input>
           </el-form-item>
           <el-form-item>
             <label>承办单位</label>
-            <el-input type="text" v-model="declareForm.fondcomp" auto-complete="off"
+            <el-input type="text" ref="fondcomp" v-model="declareForm.fondcomp" auto-complete="off"
                       placeholder=""></el-input>
           </el-form-item>
 
@@ -44,7 +44,7 @@
             <el-col :span="12">
               <el-form-item>
                 <label>批准文号</label>
-                <el-input type="text" v-model="declareForm.authnum" auto-complete="off"
+                <el-input type="text" ref="authnum" v-model="declareForm.authnum" auto-complete="off"
                           placeholder=""></el-input>
               </el-form-item>
             </el-col>
@@ -58,14 +58,14 @@
             <el-col :span="17">
               <el-form-item>
                 <label>举办地点</label>
-                <el-input type="text" v-model="declareForm.hostpls" auto-complete="off"
+                <el-input type="text" ref="hostpls" v-model="declareForm.hostpls" auto-complete="off"
                           placeholder=""></el-input>
               </el-form-item>
             </el-col>
             <el-col :span="7">
               <el-form-item>
                 <label>举办时间</label>
-                <el-input type="date" name="hosttime" v-model="declareForm.hosttime" auto-complete="off"
+                <el-input type="date" ref="hosttime" name="hosttime" v-model="declareForm.hosttime" auto-complete="off"
                           placeholder=""></el-input>
               </el-form-item>
             </el-col>
@@ -75,14 +75,14 @@
             <el-col :span="12">
               <el-form-item>
                 <label>举办周期</label>
-                <el-input type="text" v-model="declareForm.hostcrlc" auto-complete="off"
+                <el-input type="text" ref="hostcrlc" v-model="declareForm.hostcrlc" auto-complete="off"
                           placeholder=""></el-input>
               </el-form-item>
             </el-col>
             <el-col :span="12">
               <el-form-item>
                 <label>举办面积</label>
-                <el-input type="text" v-model="declareForm.hostarea" auto-complete="off"
+                <el-input type="text" ref="hostarea" v-model="declareForm.hostarea" auto-complete="off"
                           placeholder=""></el-input>
               </el-form-item>
             </el-col>
@@ -92,7 +92,7 @@
 
           <el-form-item>
             <label>展会内容</label>
-            <el-input type="textarea" v-model="declareForm.expocont" auto-complete="off"
+            <el-input type="textarea" ref="expocont" v-model="declareForm.expocont" auto-complete="off"
                       placeholder=""></el-input>
           </el-form-item>
 
@@ -103,7 +103,7 @@
                 <el-col :span="12">
                   <p>
                     <span>国内：</span>
-                    <input id="view1" style="width: 40px" type="number" min="0" max="100" v-model="declareForm.expofrom1" auto-complete="off"
+                    <input id="view1" ref="expofrom1" style="width: 40px" type="number" min="0" max="100" v-model="declareForm.expofrom1" auto-complete="off"
                               placeholder="" @change="change1" oninput="if(value>100)value=100; if(value<0)value=0"></input>
                     <span>%</span>
                   </p>
@@ -111,7 +111,7 @@
                 <el-col :span="12">
                   <p>
                     <span>海外：</span>
-                    <input id="view2" style="width: 40px" type="number" min="0" max="100"  v-model="declareForm.expofrom2" auto-complete="off"
+                    <input id="view2" ref="expofrom2" style="width: 40px" type="number" min="0" max="100"  v-model="declareForm.expofrom2" auto-complete="off"
                               placeholder="" @change="change2" oninput="if(value>100)value=100; if(value<0)value=0"></input>
                     <span>%</span>
                   </p>
@@ -129,14 +129,15 @@
                   <el-col :span="12">
                     <p style="font-size: 10px">
                       <label style="vertical-align:middle;">是否有采购商参加</label>
-                      <input style="vertical-align:middle;" type="checkbox" v-model="declareForm.viewfrom1" name="views" auto-complete="off"
+
+                     <input style="vertical-align:middle;" ref="viewfrom1" type="checkbox" v-model="declareForm.viewfrom1" name="views" auto-complete="off"
                              placeholder=""></input>
                     </p>
                   </el-col>
                   <el-col :span="8">
                     <p style="font-size: 10px">
                       <label style="vertical-align:middle;">是否有消费者参加</label>
-                      <input style="vertical-align:middle;" type="checkbox" v-model="declareForm.viewfrom2" name="views" auto-complete="off"
+                      <input style="vertical-align:middle;" ref="viewfrom2" type="checkbox" v-model="declareForm.viewfrom2" name="views" auto-complete="off"
                              placeholder=""></input>
                     </p>
                   </el-col>
@@ -155,12 +156,12 @@
 
           <el-form-item>
             <label>拨款单位</label>
-            <el-input type="text" v-model="declareForm.finanfrom" auto-complete="off"
+            <el-input type="text" ref="finanfrom" v-model="declareForm.finanfrom" auto-complete="off"
                       placeholder=""></el-input>
           </el-form-item>
           <el-form-item>
             <label>金额</label>
-            <el-input type="text" v-model="declareForm.finanfond" auto-complete="off"
+            <el-input type="text" ref="finanfond" v-model="declareForm.finanfond" auto-complete="off"
                       placeholder=""></el-input>
           </el-form-item>
 
@@ -170,12 +171,12 @@
 
           <el-form-item>
             <label>资金来源</label>
-            <el-input type="text" v-model="declareForm.otherfrom" auto-complete="off"
+            <el-input type="text" ref="otherfrom" v-model="declareForm.otherfrom" auto-complete="off"
                       placeholder=""></el-input>
           </el-form-item>
           <el-form-item>
             <label>金额</label>
-            <el-input type="text" v-model="declareForm.otherfond" auto-complete="off"
+            <el-input type="text" ref="otherfond" v-model="declareForm.otherfond" auto-complete="off"
                       placeholder=""></el-input>
           </el-form-item>
 
@@ -188,25 +189,40 @@
             <el-col :span="12">
               <p style="font-size: 10px">
                 <label style="vertical-align:middle;">是否邀请党和国家领导人出席</label>
-                <input style="vertical-align:middle;" type="checkbox" v-model="declareForm.leaderN" name="leaders" auto-complete="off"
+                <input style="vertical-align:middle;" ref="leaderN" type="checkbox" v-model="declareForm.leaderN" name="leaders" auto-complete="off"
                        placeholder=""></input>
               </p>
             </el-col>
             <el-col :span="12">
               <p style="font-size: 10px">
                 <label style="vertical-align:middle;">是否邀请境外部级以上政要出席</label>
-                <input style="vertical-align:middle;" type="checkbox" v-model="declareForm.leaderF" name="leaders" auto-complete="off"
+                <input style="vertical-align:middle;" ref="leaderF" type="checkbox" v-model="declareForm.leaderF" name="leaders" auto-complete="off"
                        placeholder=""></input>
               </p>
             </el-col>
           </el-form-item>
           <el-form-item>
             <label>内容简述</label>
-            <el-input type="textarea" v-model="declareForm.content" auto-complete="off"
+            <el-input type="textarea" ref="content" v-model="declareForm.content" auto-complete="off"
                       placeholder=""></el-input>
           </el-form-item>
+					
+					<el-form-item>
+						<div class="inputFile1"> 
+							<label>农业农村部展会活动登记表</label><br />
+							<input type="file" ref="inputFile1"  placeholder="请提交农业农村部展会活动登记表"></input>
+						</div>
+
+						<div class="inputFile2">
+							<label>以往会展情况和招商方案</label><br />
+							<input type="file" ref="inputFile2"  placeholder="请提交农业农村部展会活动登记表"></input>
+						</div>
+
+							
+					</el-form-item>
 
           <el-form-item style="padding-bottom:30px; padding-right: 30px">
+
             <el-button class="subBtn" type="primary" v-on:click="declareFormed">提交</el-button>
           </el-form-item>
 
@@ -270,6 +286,7 @@ export default {
 			        message: "请填写展会名称！",
 			        type: "error"
 			      })
+						this.$refs.exponame.focus();
 			      return false
 			    }
 			    if(!this.declareForm.hostcomp){
@@ -278,6 +295,7 @@ export default {
 			        message: "请填写展会主办单位！",
 			        type: "error"
 			      })
+						this.$refs.hostcomp.focus();
 			      return false
 			    }
 			    if(!this.declareForm.fondcomp){
@@ -286,6 +304,7 @@ export default {
 			        message: "请填写承办单位！",
 			        type: "error"
 			      })
+						this.$refs.fondcomp.focus();
 			      return false
 			    }
 			    if(!this.declareForm.authobj){
@@ -303,6 +322,7 @@ export default {
 			        message: "请填写批准文号！",
 			        type: "error"
 			      })
+						this.$refs.authnum.focus();
 			      return false
 			    }
 			    if(!this.declareForm.hostpls){
@@ -311,15 +331,16 @@ export default {
 			          message: "举办地点！",
 			        type: "error"
 			      })
+						this.$refs.hostpls.focus();
 			      return false
 			    }
 					if(!this.declareForm.hosttime){
 					  this.$message({
 					    showClose: true,
-					    message: "请填写批准单位！",
+					    message: "请填写举办时间！",
 					    type: "error"
 					  })
-						el-form-item.hosttime.focus();
+						this.$refs.hosttime.focus();
 					  return false
 					}
 					if(!this.declareForm.hostcrlc){
@@ -328,7 +349,7 @@ export default {
 					    message: "请填写举办周期！",
 					    type: "error"
 					  })
-						form.hostcrlc.focus();
+						this.$refs.hostcrlc.focus();
 					  return false
 					}
 					if(!this.declareForm.hostarea){
@@ -337,7 +358,7 @@ export default {
 					    message: "请填写举办面积！",
 					    type: "error"
 					  })
-						form.authobj.focus();
+						this.$refs.hostarea.focus();
 					  return false
 					}
 					if(!this.declareForm.expocont){
@@ -346,7 +367,7 @@ export default {
 					    message: "请填写展会内容！",
 					    type: "error"
 					  })
-						form.authobj.focus();
+						this.$refs.expocont.focus();
 					  return false
 					}
 					if(!this.declareForm.expofrom1){
@@ -355,7 +376,7 @@ export default {
 					    message: "请填写国内参展商来源！",
 					    type: "error"
 					  })
-						form.authobj.focus();
+						this.$refs.expofrom1.focus();
 					  return false
 					}
 					if(!this.declareForm.expofrom2){
@@ -364,25 +385,16 @@ export default {
 					    message: "请填写国外参展商来源！",
 					    type: "error"
 					  })
-						form.authobj.focus();
+						this.$refs.expofrom2.focus();
 					  return false
 					}
-					if(!this.declareForm.viewfrom1){
+					if(!(this.declareForm.viewfrom1 || this.declareForm.viewfrom2)){
 					  this.$message({
 					    showClose: true,
-					    message: "请填写观众构成--采购商！",
+					    message: "请填写观众构成！",
 					    type: "error"
 					  })
-						form.authobj.focus();
-					  return false
-					}
-					if(!this.declareForm.viewfrom2){
-					  this.$message({
-					    showClose: true,
-					    message: "请填写观众构成--消费者！",
-					    type: "error"
-					  })
-						form.authobj.focus();
+						this.$refs.viewfrom1.focus();
 					  return false
 					}
 					if(!this.declareForm.finanfrom){
@@ -391,7 +403,7 @@ export default {
 					    message: "请填写拨款单位！",
 					    type: "error"
 					  })
-						form.authobj.focus();
+						this.$refs.finanfrom.focus();
 					  return false
 					}
 					if(!this.declareForm.finanfond){
@@ -400,11 +412,64 @@ export default {
 					    message: "请填写金额！",
 					    type: "error"
 					  })
-						form.authobj.focus();
+						this.$refs.finanfond.focus();
 					  return false
 					}
-			
+					if(!this.declareForm.otherfrom){
+					  this.$message({
+					    showClose: true,
+					    message: "请填写资金来源！",
+					    type: "error"
+					  })
+						this.$refs.otherfrom.focus();
+					  return false
+					}
+					if(!this.declareForm.otherfond){
+					  this.$message({
+					    showClose: true,
+					    message: "请填写其他来源金额！",
+					    type: "error"
+					  })
+						this.$refs.otherfond.focus();
+					  return false
+					}
+
+					if(!this.declareForm.content){
+					  this.$message({
+					    showClose: true,
+					    message: "请填写内容简述！",
+					    type: "error"
+					  })
+						this.$refs.content.focus();
+					  return false
+					}
+					let ip1 = this.$refs.inputFile1;
+					let ip2 = this.$refs.inputFile2;
+			    let formdata = new FormData()
+					console.log(ip1.files)
+					if(!(ip1.files[0] && ip2.files[0])){
+						this.$message({
+						  showClose: true,
+						  message: "请填写内容简述！",
+						  type: "error"
+						})
+						this.$refs.inputFile1.focus();
+						return false
+					}
+			    formdata.append("file", ip1.files[0]);
+					formdata.append("file", ip2.files[0]);
+					console.log(formdata)
 			    this.$axios
+					.post('/file', formdata).then(res => {
+										if (res.data.statusCode == 200) {
+                            alert("修改成功！");
+                            history.go(-1);
+                      } else {
+                            alert("修改失败！");
+                       }
+
+					})
+					this.$axios
 			      .post('/easy', {
 			        name : this.declareForm.name,
 			        host : this.declareForm.host,
@@ -615,6 +680,12 @@ $list1: $bluee $pinkk $yelloww $grennn $purplee $lightBluee;
 
 .chartArea{
   margin-bottom: 15px;
+}
+.inputFile1{
+	float: left;
+}
+.inputFile2{
+	float: right;
 }
 
 
