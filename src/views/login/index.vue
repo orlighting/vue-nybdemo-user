@@ -77,7 +77,7 @@ export default {
         return false
       } else {
         this.$axios
-          .post("/login", {
+          .post("/login/user", {
             id: this.loginForm.id,
             password: this.loginForm.password
           })
