@@ -3,7 +3,7 @@
 
 		<div class="card bbxx" style="width: 1000px">
 			<div class="chartUser">
-				<!-- //EasyForm? -->
+				//EasyForm?
 				<el-form :model="easyForm" status-icon label-width="30px" class="demo-ruleForm" style="padding-right: 30px">
 					<div class="helpinfo">
 						<p><span class="wrtext">本申报适用于已加入展会计划的申报！未加入计划的请使用细节申报！</span></p>
@@ -155,13 +155,13 @@
 
 				this.$axios
 					.post('/handin/easy', {
-						dmeetid: this.easyForm.dmeetid,
-						userid: this.$store.getters.token, 
 						name: this.easyForm.name,
 						host: this.easyForm.host,
 						time: this.easyForm.time,
 						place: this.easyForm.place,
-						ps: this.easyForm.ps,						
+						ps: this.easyForm.ps,
+						dmeetid: this.easyForm.dmeetid,
+						userid: this.$store.getters.token
 
 					})
 					.then(successResponse => {

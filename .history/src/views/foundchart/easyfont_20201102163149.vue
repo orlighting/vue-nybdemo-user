@@ -155,13 +155,13 @@
 
 				this.$axios
 					.post('/handin/easy', {
-						dmeetid: this.easyForm.dmeetid,
-						userid: this.$store.getters.token, 
 						name: this.easyForm.name,
 						host: this.easyForm.host,
 						time: this.easyForm.time,
 						place: this.easyForm.place,
-						ps: this.easyForm.ps,						
+						ps: this.easyForm.ps,
+						dmeetid: this.easyForm.dmeetid,
+						userid: this.$store.getters.token
 
 					})
 					.then(successResponse => {

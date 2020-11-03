@@ -1,8 +1,15 @@
 <template>
+<<<<<<< HEAD
+  <div>
+    <el-row :gutter=20>
+
+      <el-col span=12>
+=======
 <div>
     <el-row :gutter="20">
 
         <el-col :span="12">
+>>>>>>> 47d3746 (新增了申请列表)
 
         </el-col>
 
@@ -37,7 +44,6 @@
 
 <script>
 import Cookies from "js-cookie";
-import exhiList from "../../components/common/exhiList/exhiList"
 
 export default {
   name: "mainIndex",
@@ -49,9 +55,6 @@ export default {
       imgUrl: require("../../assets/photo.jpeg"),
       efcheck: false
     }
-  },
-  components:{
-      exhiList
   },
 
   created () {
@@ -312,7 +315,7 @@ $list1: $bluee $pinkk $yelloww $grennn $purplee $lightBluee;
                 border-#{$top}: 1px solid #cccccc;
             }
 
-            // span {}
+            span {}
 
             .tit {
                 width: 180px;

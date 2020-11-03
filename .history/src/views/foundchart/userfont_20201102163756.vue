@@ -210,13 +210,12 @@
 					<el-form-item>
 						<div class="inputFile1"> 
 							<label>以往会展情况</label><br />
-							<input type="file" ref="inputFile1"  placeholder="请提交PDF格式的以往会展情况"
-              accept=".pdf"></input>
+							<input type="file" ref="inputFile1"  placeholder="请提交以往会展情况"></input>
 						</div>
 
 						<div class="inputFile2">
-							<label>招商方案</label><br/>
-							<input type="file" ref="inputFile2"  placeholder="请提交PDF格式的招商方案" accept=".pdf"></input>
+							<label>招商方案</label><br />
+							<input type="file" ref="inputFile2"  placeholder="请提交招商方案"></input>
 						</div>
 
 							
@@ -224,7 +223,7 @@
 
           <el-form-item style="padding-bottom:30px; padding-right: 30px">
 
-            <el-button class="subBtn" type="primary" v-on:click="declareFormed" >提交</el-button>
+            <el-button class="subBtn" type="primary" v-on:click="declareFormed">提交</el-button>
           </el-form-item>
 
         </el-form>
@@ -459,46 +458,26 @@ export default {
 					}
 			    formdata.append("file", ip1.files[0]);
 					formdata.append("file", ip2.files[0]);
-          // console.log(formdata)
-          
-			    // this.$axios
-					// .post('/file', formdata).then(res => {
-					// 					if (res.data.statusCode == 200) {
-          //                   alert("修改成功！");
-          //                   history.go(-1);
-          //             } else {
-          //                   alert("修改失败！");
-          //              }
+					console.log(formdata)
+			    this.$axios
+					.post('/file', formdata).then(res => {
+										if (res.data.statusCode == 200) {
+                            alert("修改成功！");
+                            history.go(-1);
+                      } else {
+                            alert("修改失败！");
+                       }
 
-					// })
+					})
 					this.$axios
 			      .post('/handin/detail', {
-              iid : this.$store.getters.token,
-              finanFund : this.declareForm.finanfrom,
-              otherFund : this.declareForm.otherFund,
-              area: this.declareForm.area,
-              domestic:this.declareForm.domestic,
-              foreign:this.declareForm.foreign,
-              name : this.declareForm.name,
-              hostcomp : this.declareForm.hostcomp,
-              fundcomp : this.declareForm.fundcomp,
-              authObj : this.declareForm.authObj,
-              authNum : this.declareForm.authNum,
-              place : this.declareForm.place,
-              cycle : this.declareForm.hostcrlc,
-              content : this.declareForm.content,
-              finanFrom : this.declareForm.finanfrom,
-              otherFrom : this.declareForm.otherfrom,
-              declare : this.declareForm.content,
-              //  往届展会情况文档id
-              preExpoFileId : formdata[0] ,
-              // 招商方案文档id
-              investmentPlanFileId : formdata[1],
-              time : this.declareForm.time,
-              view1 : this.declareForm.viewfrom1,
-              view2 : this.declareForm.viewfrom2,
-              leaderD : this.declareForm.leaderN,
-              leaderF : this.declareForm.leaderF,
+			        name : this.declareForm.name,
+			        host : this.declareForm.host,
+			        time : this.declareForm.time,
+			        place : this.declareForm.place,
+			        ps : this.declareForm.ps,
+			        dmeetid : this.declareForm.dmeetid,
+			        userid : this.$store.getters.token
 			
 			      })
 			      .then(successResponse => {

@@ -37,7 +37,6 @@
 
 <script>
 import Cookies from "js-cookie";
-import exhiList from "../../components/common/exhiList/exhiList"
 
 export default {
   name: "mainIndex",
@@ -49,9 +48,6 @@ export default {
       imgUrl: require("../../assets/photo.jpeg"),
       efcheck: false
     }
-  },
-  components:{
-      exhiList
   },
 
   created () {

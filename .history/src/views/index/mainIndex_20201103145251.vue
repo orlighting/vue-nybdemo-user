@@ -1,4 +1,8 @@
 <template>
+  <div>
+    <el-row :gutter='20'>
+
+      <el-col :span='12'>
 <div>
     <el-row :gutter="20">
 
@@ -37,7 +41,6 @@
 
 <script>
 import Cookies from "js-cookie";
-import exhiList from "../../components/common/exhiList/exhiList"
 
 export default {
   name: "mainIndex",
@@ -49,9 +52,6 @@ export default {
       imgUrl: require("../../assets/photo.jpeg"),
       efcheck: false
     }
-  },
-  components:{
-      exhiList
   },
 
   created () {

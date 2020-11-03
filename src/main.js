@@ -36,7 +36,7 @@ VueAMap.initAMapApiLoader({
 });
 
 var axios = require('axios')
-axios.defaults.baseURL = 'http://192.168.1.101:8445/api'
+axios.defaults.baseURL = 'http://192.168.1.100:8445/api'
 Vue.prototype.$axios = axios
 
 NProgress.inc(0.2)
