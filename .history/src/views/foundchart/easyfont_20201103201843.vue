@@ -101,13 +101,13 @@ import  {warningOpen, errorOpen, successOpen} from '../../utils/message';
 
 		methods: {
 			easyFormed() {
-				// for(var item in this.easyForm){
-				// 	if (!this.easyForm.item){
-				// 		warningOpen(this.$refs.item)
-				// 		// this.$refs.item.focus();
+				for(item of this.easyForm){
+					if (!this.easyForm.item){
+						warningOpen(this.$refs.item.name)
+						this.$refs.item.focus();
 
-				// 	}
-				// }
+					}
+				}
 				if (!this.easyForm.name) {
 					warningOpen("请填写展会名称！")
 					this.$refs.name.focus();

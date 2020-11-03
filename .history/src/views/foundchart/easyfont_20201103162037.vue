@@ -82,8 +82,6 @@
 </template>
 
 <script scope>
-
-import  {warningOpen, errorOpen, successOpen} from '../../utils/message';
 	export default {
 		name: "easyfont",
 		data() {
@@ -101,40 +99,56 @@ import  {warningOpen, errorOpen, successOpen} from '../../utils/message';
 
 		methods: {
 			easyFormed() {
-				// for(var item in this.easyForm){
-				// 	if (!this.easyForm.item){
-				// 		warningOpen(this.$refs.item)
-				// 		// this.$refs.item.focus();
-
-				// 	}
-				// }
 				if (!this.easyForm.name) {
-					warningOpen("请填写展会名称！")
+					this.$message({
+						showClose: true,
+						message: "请填写展会名称！",
+						type: "error"
+					})
 					this.$refs.name.focus();
 					return false
 				}
 				if (!this.easyForm.dmeetid) {
-					warningOpen("请填写展会对应计划id！")
+					this.$message({
+						showClose: true,
+						message: "请填写展会对应计划id！",
+						type: "error"
+					})
 					this.$refs.dmeetid.focus();
 					return false
 				}
 				if (!this.easyForm.host) {
-					warningOpen("请填写主办单位！")
+					this.$message({
+						showClose: true,
+						message: "请填写主办单位！",
+						type: "error"
+					})
 					this.$refs.host.focus();
 					return false
 				}
 				if (!this.easyForm.time) {
-					warningOpen("请填写举办时间！")
+					this.$message({
+						showClose: true,
+						message: "请填写举办时间！",
+						type: "error"
+					})
 					this.$refs.time.focus();
 					return false
 				}
 				if (!this.easyForm.place) {
-					warningOpen("请填写举办地点！")
-					this.$refs.place.focus();
+					this.$message({
+						showClose: true,
+						message: "请填写举办地点！",
+						type: "error"
+					})
 					return false
 				}
 				if (!this.easyForm.ps) {
-					warningOpen("请填写备注！")
+					this.$message({
+						showClose: true,
+						message: "请填写备注！",
+						type: "error"
+					})
 					this.$refs.ps.focus();
 					return false
 				}
@@ -152,9 +166,6 @@ import  {warningOpen, errorOpen, successOpen} from '../../utils/message';
 					})
 					.then(successResponse => {
 						if (successResponse.data.code === 0) {
-							successOpen();
-	
-							this.$router.push('/').catch(()=>{})					
 
 						} else {
 							this.$message({
@@ -165,7 +176,6 @@ import  {warningOpen, errorOpen, successOpen} from '../../utils/message';
 						}
 					})
 					.catch(failResponse => {})
-				
 
 			}
 		}

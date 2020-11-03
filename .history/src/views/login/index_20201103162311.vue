@@ -92,7 +92,7 @@ export default {
             password: this.loginForm.password
           })
           .then(successResponse => {
-            if (successResponse.data.code === 0) {
+            if (successResponse.data.code === 200) {
               // 将 id 设置为 token 存储在 store，仅为测试效果，实际存储 token 以后台返回为准
               that.$store.dispatch("setToken", that.loginForm.id).then(() => {
                 that.$router.push({path: "/"})

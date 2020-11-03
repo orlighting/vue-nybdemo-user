@@ -101,43 +101,43 @@ import  {warningOpen, errorOpen, successOpen} from '../../utils/message';
 
 		methods: {
 			easyFormed() {
-				// for(var item in this.easyForm){
-				// 	if (!this.easyForm.item){
-				// 		warningOpen(this.$refs.item)
-				// 		// this.$refs.item.focus();
+				for(var item in this.easyForm){
+					if (!this.easyForm.item){
+						warningOpen(this.$refs.item.name)
+						this.$refs.item.focus();
 
-				// 	}
+					}
+				}
+				// if (!this.easyForm.name) {
+				// 	warningOpen("请填写展会名称！")
+				// 	this.$refs.name.focus();
+				// 	return false
 				// }
-				if (!this.easyForm.name) {
-					warningOpen("请填写展会名称！")
-					this.$refs.name.focus();
-					return false
-				}
-				if (!this.easyForm.dmeetid) {
-					warningOpen("请填写展会对应计划id！")
-					this.$refs.dmeetid.focus();
-					return false
-				}
-				if (!this.easyForm.host) {
-					warningOpen("请填写主办单位！")
-					this.$refs.host.focus();
-					return false
-				}
-				if (!this.easyForm.time) {
-					warningOpen("请填写举办时间！")
-					this.$refs.time.focus();
-					return false
-				}
-				if (!this.easyForm.place) {
-					warningOpen("请填写举办地点！")
-					this.$refs.place.focus();
-					return false
-				}
-				if (!this.easyForm.ps) {
-					warningOpen("请填写备注！")
-					this.$refs.ps.focus();
-					return false
-				}
+				// if (!this.easyForm.dmeetid) {
+				// 	warningOpen("请填写展会对应计划id！")
+				// 	this.$refs.dmeetid.focus();
+				// 	return false
+				// }
+				// if (!this.easyForm.host) {
+				// 	warningOpen("请填写主办单位！")
+				// 	this.$refs.host.focus();
+				// 	return false
+				// }
+				// if (!this.easyForm.time) {
+				// 	warningOpen("请填写举办时间！")
+				// 	this.$refs.time.focus();
+				// 	return false
+				// }
+				// if (!this.easyForm.place) {
+				// 	warningOpen("请填写举办地点！")
+				// 	this.$refs.place.focus();
+				// 	return false
+				// }
+				// if (!this.easyForm.ps) {
+				// 	warningOpen("请填写备注！")
+				// 	this.$refs.ps.focus();
+				// 	return false
+				// }
 
 				this.$axios
 					.post('/handin/easy', {
