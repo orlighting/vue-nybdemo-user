@@ -3,7 +3,7 @@
     <!--<p class="exhtitle fa fa-th-large fa-lg">正在申请中的展会</p> -->
     <p class="exhtitle"><i class="fa fa-th-large fa-lg" style="margin-right: 5px "></i>正在申请中的展会</p>
     <div class="exht" style="text-align:center;"><span style="width:90px;">id</span><span style="width:100px;">展会名称</span><span style="width:90px;">审核状态</span></div>
-    <exhi-list-item></exhi-list-item>
+    <exhi-list-item>我是林进</exhi-list-item>
     <exhi-list-item></exhi-list-item>
     <exhi-list-item></exhi-list-item>
     <exhi-list-item></exhi-list-item>
