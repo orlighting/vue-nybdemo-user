@@ -1,0 +1,61 @@
+<template>
+<div class="haveRead">
+<!-- style="height:100px;width:1000px;background-color: blue;" -->
+  ashdahd
+  <!-- <my-table></my-table> -->
+  <ul>
+    <li v-for="item in msgList" :key="item">
+      <span class="title">{{item.title}}</span>
+      <span class="createTime">{{item.createTime}}</span>
+      <span class="content">{{item.content}}</span>
+      </li>
+  </ul>
+
+</div>
+
+
+</template>
+
+<script>
+
+import { getLooked } from 'network/message.js';
+import myTable from "../../components/table/myTable";
+export default {
+  name: "haveread",
+  components : {
+    myTable
+  },
+  data(){
+    return{
+      msgList: [],
+      //                columns: [
+      //               {
+      //                   title: '消息标题',
+      //                   key: 'title'
+      //               },
+      //                                   {
+      //                   title: '消息内容',
+      //                   key: 'content'
+      //               },
+      //               {
+      //                   title: '消息发送时间',
+      //                   key: 'createTime'
+      //               },
+      //           ],
+    }
+  },
+  created(){
+    getLooked(this.$store.getters.token).then(res => {
+      // console.log(res)
+      this.msgList = res.data
+      console.log(this.msgList)
+      
+
+    })
+  }
+}
+</script>
+
+<style lang='scss' scoped>
+
+</style>

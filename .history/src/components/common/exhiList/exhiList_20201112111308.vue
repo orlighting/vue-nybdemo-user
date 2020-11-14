@@ -2,18 +2,10 @@
 <div class="exhiList">
     <!--<p class="exhtitle fa fa-th-large fa-lg">正在申请中的展会</p> -->
     <p class="exhtitle"><i class="fa fa-th-large fa-lg" style="margin-right: 5px "></i>正在申请中的展会</p>
-    <div class="exht" style="text-align:center;"><span style="width:90px;">id</span><span style="width:100px;">展会名称</span><span style="width:90px;">审核状态</span></div>
-    <exhi-list-item></exhi-list-item>
-    <exhi-list-item></exhi-list-item>
-    <exhi-list-item></exhi-list-item>
-    <exhi-list-item></exhi-list-item>
-    <exhi-list-item></exhi-list-item>
-    <exhi-list-item></exhi-list-item>
-    <exhi-list-item></exhi-list-item>
-    <exhi-list-item></exhi-list-item>
-    <exhi-list-item></exhi-list-item>
-    <exhi-list-item></exhi-list-item>
-    <!-- <exhi-list-item v-for="(item,index) in exhiList" :exhiListItem="item"></exhi-list-item>  -->
+    <div class="exht" style="text-align:center; width:280px">
+        <span style="width:90px;">id</span><span style="width:100px;">展会名称</span><span style="width:90px;">审核状态</span>
+    </div>
+    <exhi-list-item v-for="(item,index) in exhiList" :exhiListItem="item" :key="index"></exhi-list-item> 
 
 </div>
 </template>
@@ -42,8 +34,9 @@ export default {
 
     // 从后台获取数据，并且保存到exhiList
     created() {
-        getExhiState().then(res => {
-            this.exhiList = res
+        getExhiState(this.$store.getters.token).then(res => {
+            this.exhiList = res.data
+            console.log( this.exhiList)
         })
     }
 }
