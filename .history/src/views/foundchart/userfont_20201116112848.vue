@@ -21,12 +21,12 @@
           <el-form-item>
             <label>主办单位</label>
             <el-input type="text" ref="hostcomp" v-model="declareForm.hostcomp" auto-complete="off"
-                      placeholder="公司/团体名"></el-input>
+                      placeholder=""></el-input>
           </el-form-item>
           <el-form-item>
             <label>承办单位</label>
             <el-input type="text" ref="fondcomp" v-model="declareForm.fondcomp" auto-complete="off"
-                      placeholder="公司/团体名"></el-input>
+                      placeholder=""></el-input>
           </el-form-item>
 
           <div style="padding: 18px">
@@ -38,14 +38,14 @@
               <el-form-item>
                 <label>批准单位</label>
                 <el-input type="text" ref="authobj" v-model="declareForm.authobj" auto-complete="off"
-                          placeholder="部门/团体名"></el-input>
+                          placeholder=""></el-input>
               </el-form-item>
             </el-col>
             <el-col :span="12">
               <el-form-item>
                 <label>批准文号</label>
                 <el-input type="text" ref="authnum" v-model="declareForm.authnum" auto-complete="off"
-                          placeholder="例：N2020091234"></el-input>
+                          placeholder=""></el-input>
               </el-form-item>
             </el-col>
           </el-row>
@@ -59,7 +59,7 @@
               <el-form-item>
                 <label>举办地点</label>
                 <el-input type="text" ref="hostpls" v-model="declareForm.hostpls" auto-complete="off"
-                          placeholder="xx省 xx市 xx区 xx路xxx号"></el-input>
+                          placeholder=""></el-input>
               </el-form-item>
             </el-col>
             <el-col :span="7">
@@ -74,16 +74,16 @@
           <el-row>
             <el-col :span="12">
               <el-form-item>
-                <label>举办周期（月）</label>
-                <el-input type="number" ref="hostcrlc" v-model="declareForm.hostcrlc" auto-complete="off"
-                          placeholder="请填写纯数字，默认单位‘月’"></el-input>
+                <label>举办周期</label>
+                <el-input type="text" ref="hostcrlc" v-model="declareForm.hostcrlc" auto-complete="off"
+                          placeholder=""></el-input>
               </el-form-item>
             </el-col>
             <el-col :span="12">
               <el-form-item>
-                <label>举办面积（m²）</label>
-                <el-input type="number" ref="hostarea" v-model="declareForm.hostarea" auto-complete="off"
-                          placeholder="请填写纯数字，默认单位‘m²’"></el-input>
+                <label>举办面积</label>
+                <el-input type="text" ref="hostarea" v-model="declareForm.hostarea" auto-complete="off"
+                          placeholder=""></el-input>
               </el-form-item>
             </el-col>
           </el-row>
@@ -91,8 +91,8 @@
 
 
           <el-form-item>
-            <label>展会内容(100字以内)</label>
-            <el-input type="textarea" ref="expocont" :maxlength="100" v-model="declareForm.expocont" auto-complete="off"
+            <label>展会内容</label>
+            <el-input type="textarea" ref="expocont" v-model="declareForm.expocont" auto-complete="off"
                       placeholder=""></el-input>
           </el-form-item>
 
@@ -160,12 +160,12 @@
           <el-form-item>
             <label>拨款单位</label>
             <el-input type="text" ref="finanfrom" v-model="declareForm.finanfrom" auto-complete="off"
-                      placeholder="公司/团体名"></el-input>
+                      placeholder=""></el-input>
           </el-form-item>
           <el-form-item>
-            <label>金额（元）</label>
-            <el-input type="number" ref="finanfond" v-model="declareForm.finanfond" auto-complete="off"
-                      placeholder="请填写纯数字，默认单位‘元’"></el-input>
+            <label>金额</label>
+            <el-input type="text" ref="finanfond" v-model="declareForm.finanfond" auto-complete="off"
+                      placeholder=""></el-input>
           </el-form-item>
 
           <div style="padding: 18px">
@@ -179,8 +179,8 @@
           </el-form-item>
           <el-form-item>
             <label>金额</label>
-            <el-input type="number" ref="otherfond" v-model="declareForm.otherfond" auto-complete="off"
-                      placeholder="请填写纯数字，默认单位‘元’"></el-input>
+            <el-input type="text" ref="otherfond" v-model="declareForm.otherfond" auto-complete="off"
+                      placeholder=""></el-input>
           </el-form-item>
 
           <div style="padding: 18px">
@@ -205,8 +205,8 @@
             </el-col>
           </el-form-item>
           <el-form-item>
-            <label>内容简述(100字内)</label>
-            <el-input type="textarea" ref="content"  :maxlength="100" v-model="declareForm.content" auto-complete="off"
+            <label>内容简述</label>
+            <el-input type="textarea" ref="content" v-model="declareForm.content" auto-complete="off"
                       placeholder=""></el-input>
           </el-form-item>
 					
@@ -303,169 +303,169 @@ export default {
     // },
 
     declareFormed(){
-			    // if(!this.declareForm.exponame){
-			    //   this.$message({
-			    //     showClose: true,
-			    //     message: "请填写展会名称！",
-			    //     type: "error"
-			    //   })
-					// 	this.$refs.exponame.focus();
-			    //   return false
-			    // }
-			    // if(!this.declareForm.hostcomp){
-			    //   this.$message({
-			    //     showClose: true,
-			    //     message: "请填写展会主办单位！",
-			    //     type: "error"
-			    //   })
-					// 	this.$refs.hostcomp.focus();
-			    //   return false
-			    // }
-			    // if(!this.declareForm.fondcomp){
-			    //   this.$message({
-			    //     showClose: true,
-			    //     message: "请填写承办单位！",
-			    //     type: "error"
-			    //   })
-					// 	this.$refs.fondcomp.focus();
-			    //   return false
-			    // }
-			    // if(!this.declareForm.authobj){
-			    //   this.$message({
-			    //     showClose: true,
-			    //     message: "请填写批准单位！",
-			    //     type: "error"
-			    //   })
-					// 	this.$refs.authobj.focus();
-			    //   return false
-			    // }
-			    // if(!this.declareForm.authnum){
-			    //   this.$message({
-			    //     showClose: true,
-			    //     message: "请填写批准文号！",
-			    //     type: "error"
-			    //   })
-					// 	this.$refs.authnum.focus();
-			    //   return false
-			    // }
-			    // if(!this.declareForm.hostpls){
-			    //   this.$message({
-			    //     showClose: true,
-			    //       message: "举办地点！",
-			    //     type: "error"
-			    //   })
-					// 	this.$refs.hostpls.focus();
-			    //   return false
-			    // }
-					// if(!this.declareForm.hosttime){
-					//   this.$message({
-					//     showClose: true,
-					//     message: "请填写举办时间！",
-					//     type: "error"
-					//   })
-					// 	this.$refs.hosttime.focus();
-					//   return false
-					// }
-					// if(!this.declareForm.hostcrlc){
-					//   this.$message({
-					//     showClose: true,
-					//     message: "请填写举办周期！",
-					//     type: "error"
-					//   })
-					// 	this.$refs.hostcrlc.focus();
-					//   return false
-					// }
-					// if(!this.declareForm.hostarea){
-					//   this.$message({
-					//     showClose: true,
-					//     message: "请填写举办面积！",
-					//     type: "error"
-					//   })
-					// 	this.$refs.hostarea.focus();
-					//   return false
-					// }
-					// if(!this.declareForm.expocont){
-					//   this.$message({
-					//     showClose: true,
-					//     message: "请填写展会内容！",
-					//     type: "error"
-					//   })
-					// 	this.$refs.expocont.focus();
-					//   return false
-					// }
-					// if(!this.declareForm.expofrom1){
-					//   this.$message({
-					//     showClose: true,
-					//     message: "请填写国内参展商来源！",
-					//     type: "error"
-					//   })
-					// 	this.$refs.expofrom1.focus();
-					//   return false
-					// }
-					// if(!this.declareForm.expofrom2){
-					//   this.$message({
-					//     showClose: true,
-					//     message: "请填写国外参展商来源！",
-					//     type: "error"
-					//   })
-					// 	this.$refs.expofrom2.focus();
-					//   return false
-					// }
-					// if(!(this.declareForm.viewfrom1 || this.declareForm.viewfrom2)){
-					//   this.$message({
-					//     showClose: true,
-					//     message: "请填写观众构成！",
-					//     type: "error"
-					//   })
-					// 	this.$refs.viewfrom1.focus();
-					//   return false
-					// }
-					// if(!this.declareForm.finanfrom){
-					//   this.$message({
-					//     showClose: true,
-					//     message: "请填写拨款单位！",
-					//     type: "error"
-					//   })
-					// 	this.$refs.finanfrom.focus();
-					//   return false
-					// }
-					// if(!this.declareForm.finanfond){
-					//   this.$message({
-					//     showClose: true,
-					//     message: "请填写金额！",
-					//     type: "error"
-					//   })
-					// 	this.$refs.finanfond.focus();
-					//   return false
-					// }
-					// if(!this.declareForm.otherfrom){
-					//   this.$message({
-					//     showClose: true,
-					//     message: "请填写资金来源！",
-					//     type: "error"
-					//   })
-					// 	this.$refs.otherfrom.focus();
-					//   return false
-					// }
-					// if(!this.declareForm.otherfond){
-					//   this.$message({
-					//     showClose: true,
-					//     message: "请填写其他来源金额！",
-					//     type: "error"
-					//   })
-					// 	this.$refs.otherfond.focus();
-					//   return false
-					// }
+			    if(!this.declareForm.exponame){
+			      this.$message({
+			        showClose: true,
+			        message: "请填写展会名称！",
+			        type: "error"
+			      })
+						this.$refs.exponame.focus();
+			      return false
+			    }
+			    if(!this.declareForm.hostcomp){
+			      this.$message({
+			        showClose: true,
+			        message: "请填写展会主办单位！",
+			        type: "error"
+			      })
+						this.$refs.hostcomp.focus();
+			      return false
+			    }
+			    if(!this.declareForm.fondcomp){
+			      this.$message({
+			        showClose: true,
+			        message: "请填写承办单位！",
+			        type: "error"
+			      })
+						this.$refs.fondcomp.focus();
+			      return false
+			    }
+			    if(!this.declareForm.authobj){
+			      this.$message({
+			        showClose: true,
+			        message: "请填写批准单位！",
+			        type: "error"
+			      })
+						this.$refs.authobj.focus();
+			      return false
+			    }
+			    if(!this.declareForm.authnum){
+			      this.$message({
+			        showClose: true,
+			        message: "请填写批准文号！",
+			        type: "error"
+			      })
+						this.$refs.authnum.focus();
+			      return false
+			    }
+			    if(!this.declareForm.hostpls){
+			      this.$message({
+			        showClose: true,
+			          message: "举办地点！",
+			        type: "error"
+			      })
+						this.$refs.hostpls.focus();
+			      return false
+			    }
+					if(!this.declareForm.hosttime){
+					  this.$message({
+					    showClose: true,
+					    message: "请填写举办时间！",
+					    type: "error"
+					  })
+						this.$refs.hosttime.focus();
+					  return false
+					}
+					if(!this.declareForm.hostcrlc){
+					  this.$message({
+					    showClose: true,
+					    message: "请填写举办周期！",
+					    type: "error"
+					  })
+						this.$refs.hostcrlc.focus();
+					  return false
+					}
+					if(!this.declareForm.hostarea){
+					  this.$message({
+					    showClose: true,
+					    message: "请填写举办面积！",
+					    type: "error"
+					  })
+						this.$refs.hostarea.focus();
+					  return false
+					}
+					if(!this.declareForm.expocont){
+					  this.$message({
+					    showClose: true,
+					    message: "请填写展会内容！",
+					    type: "error"
+					  })
+						this.$refs.expocont.focus();
+					  return false
+					}
+					if(!this.declareForm.expofrom1){
+					  this.$message({
+					    showClose: true,
+					    message: "请填写国内参展商来源！",
+					    type: "error"
+					  })
+						this.$refs.expofrom1.focus();
+					  return false
+					}
+					if(!this.declareForm.expofrom2){
+					  this.$message({
+					    showClose: true,
+					    message: "请填写国外参展商来源！",
+					    type: "error"
+					  })
+						this.$refs.expofrom2.focus();
+					  return false
+					}
+					if(!(this.declareForm.viewfrom1 || this.declareForm.viewfrom2)){
+					  this.$message({
+					    showClose: true,
+					    message: "请填写观众构成！",
+					    type: "error"
+					  })
+						this.$refs.viewfrom1.focus();
+					  return false
+					}
+					if(!this.declareForm.finanfrom){
+					  this.$message({
+					    showClose: true,
+					    message: "请填写拨款单位！",
+					    type: "error"
+					  })
+						this.$refs.finanfrom.focus();
+					  return false
+					}
+					if(!this.declareForm.finanfond){
+					  this.$message({
+					    showClose: true,
+					    message: "请填写金额！",
+					    type: "error"
+					  })
+						this.$refs.finanfond.focus();
+					  return false
+					}
+					if(!this.declareForm.otherfrom){
+					  this.$message({
+					    showClose: true,
+					    message: "请填写资金来源！",
+					    type: "error"
+					  })
+						this.$refs.otherfrom.focus();
+					  return false
+					}
+					if(!this.declareForm.otherfond){
+					  this.$message({
+					    showClose: true,
+					    message: "请填写其他来源金额！",
+					    type: "error"
+					  })
+						this.$refs.otherfond.focus();
+					  return false
+					}
 
-					// if(!this.declareForm.content){
-					//   this.$message({
-					//     showClose: true,
-					//     message: "请填写内容简述！",
-					//     type: "error"
-					//   })
-					// 	this.$refs.content.focus();
-					//   return false
-					// }
+					if(!this.declareForm.content){
+					  this.$message({
+					    showClose: true,
+					    message: "请填写内容简述！",
+					    type: "error"
+					  })
+						this.$refs.content.focus();
+					  return false
+					}
 					let ip1 = this.$refs.inputFile1;
 					let ip2 = this.$refs.inputFile2;
           var formdata = new FormData()
@@ -532,7 +532,7 @@ export default {
 
           // })
           var axios = require('axios')
-					axios.post('http://192.168.1.102:8445/api/handin/detail', formdata)
+					axios.post('http://192.168.1.107:8445/api/handin/detail', formdata)
 			      .then(successResponse => {
 			        if (successResponse.data.code === 0) {			
                 this.$router.push('/').catch(()=>{})

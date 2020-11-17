@@ -532,7 +532,7 @@ export default {
 
           // })
           var axios = require('axios')
-					axios.post('http://192.168.1.102:8445/api/handin/detail', formdata)
+					axios.post('http://192.168.1.107:8445/api/handin/detail', formdata)
 			      .then(successResponse => {
 			        if (successResponse.data.code === 0) {			
                 this.$router.push('/').catch(()=>{})

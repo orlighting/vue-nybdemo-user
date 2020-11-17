@@ -4,7 +4,7 @@
         <!--<div class="iid">{{exhiListItem.iid}}</div>-->
         <div class="iid">{{exhiListItem.id}}</div>
         <div class="name">{{exhiListItem.name}}</div>
-        <div class="state">{{exhiListItem.checkState}}</div>
+        <div class="state">{{getCheckState}}</div>
     </div>
 
 </div>
@@ -32,9 +32,12 @@ export default {
         console.log(this.itemInfo)
     },
     computed:{
-        // getCheckState(){
-        //     return this.exhiListItem.checkState == 2 ?
-        // }
+        getCheckState(){
+            if(this.exhiListItem.checkState == 0){return '审核中' }
+            if(this.exhiListItem.checkState == 1){return '已通过，展会计划待过会' }
+            if(this.exhiListItem.checkState == 2){return '已通过，展会计划已印发' }
+            if(this.exhiListItem.checkState == 3){return '未通过，重新提交' }
+        }
     },
     method: {
 

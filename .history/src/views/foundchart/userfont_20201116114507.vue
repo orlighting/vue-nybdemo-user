@@ -303,169 +303,169 @@ export default {
     // },
 
     declareFormed(){
-			    // if(!this.declareForm.exponame){
-			    //   this.$message({
-			    //     showClose: true,
-			    //     message: "请填写展会名称！",
-			    //     type: "error"
-			    //   })
-					// 	this.$refs.exponame.focus();
-			    //   return false
-			    // }
-			    // if(!this.declareForm.hostcomp){
-			    //   this.$message({
-			    //     showClose: true,
-			    //     message: "请填写展会主办单位！",
-			    //     type: "error"
-			    //   })
-					// 	this.$refs.hostcomp.focus();
-			    //   return false
-			    // }
-			    // if(!this.declareForm.fondcomp){
-			    //   this.$message({
-			    //     showClose: true,
-			    //     message: "请填写承办单位！",
-			    //     type: "error"
-			    //   })
-					// 	this.$refs.fondcomp.focus();
-			    //   return false
-			    // }
-			    // if(!this.declareForm.authobj){
-			    //   this.$message({
-			    //     showClose: true,
-			    //     message: "请填写批准单位！",
-			    //     type: "error"
-			    //   })
-					// 	this.$refs.authobj.focus();
-			    //   return false
-			    // }
-			    // if(!this.declareForm.authnum){
-			    //   this.$message({
-			    //     showClose: true,
-			    //     message: "请填写批准文号！",
-			    //     type: "error"
-			    //   })
-					// 	this.$refs.authnum.focus();
-			    //   return false
-			    // }
-			    // if(!this.declareForm.hostpls){
-			    //   this.$message({
-			    //     showClose: true,
-			    //       message: "举办地点！",
-			    //     type: "error"
-			    //   })
-					// 	this.$refs.hostpls.focus();
-			    //   return false
-			    // }
-					// if(!this.declareForm.hosttime){
-					//   this.$message({
-					//     showClose: true,
-					//     message: "请填写举办时间！",
-					//     type: "error"
-					//   })
-					// 	this.$refs.hosttime.focus();
-					//   return false
-					// }
-					// if(!this.declareForm.hostcrlc){
-					//   this.$message({
-					//     showClose: true,
-					//     message: "请填写举办周期！",
-					//     type: "error"
-					//   })
-					// 	this.$refs.hostcrlc.focus();
-					//   return false
-					// }
-					// if(!this.declareForm.hostarea){
-					//   this.$message({
-					//     showClose: true,
-					//     message: "请填写举办面积！",
-					//     type: "error"
-					//   })
-					// 	this.$refs.hostarea.focus();
-					//   return false
-					// }
-					// if(!this.declareForm.expocont){
-					//   this.$message({
-					//     showClose: true,
-					//     message: "请填写展会内容！",
-					//     type: "error"
-					//   })
-					// 	this.$refs.expocont.focus();
-					//   return false
-					// }
-					// if(!this.declareForm.expofrom1){
-					//   this.$message({
-					//     showClose: true,
-					//     message: "请填写国内参展商来源！",
-					//     type: "error"
-					//   })
-					// 	this.$refs.expofrom1.focus();
-					//   return false
-					// }
-					// if(!this.declareForm.expofrom2){
-					//   this.$message({
-					//     showClose: true,
-					//     message: "请填写国外参展商来源！",
-					//     type: "error"
-					//   })
-					// 	this.$refs.expofrom2.focus();
-					//   return false
-					// }
-					// if(!(this.declareForm.viewfrom1 || this.declareForm.viewfrom2)){
-					//   this.$message({
-					//     showClose: true,
-					//     message: "请填写观众构成！",
-					//     type: "error"
-					//   })
-					// 	this.$refs.viewfrom1.focus();
-					//   return false
-					// }
-					// if(!this.declareForm.finanfrom){
-					//   this.$message({
-					//     showClose: true,
-					//     message: "请填写拨款单位！",
-					//     type: "error"
-					//   })
-					// 	this.$refs.finanfrom.focus();
-					//   return false
-					// }
-					// if(!this.declareForm.finanfond){
-					//   this.$message({
-					//     showClose: true,
-					//     message: "请填写金额！",
-					//     type: "error"
-					//   })
-					// 	this.$refs.finanfond.focus();
-					//   return false
-					// }
-					// if(!this.declareForm.otherfrom){
-					//   this.$message({
-					//     showClose: true,
-					//     message: "请填写资金来源！",
-					//     type: "error"
-					//   })
-					// 	this.$refs.otherfrom.focus();
-					//   return false
-					// }
-					// if(!this.declareForm.otherfond){
-					//   this.$message({
-					//     showClose: true,
-					//     message: "请填写其他来源金额！",
-					//     type: "error"
-					//   })
-					// 	this.$refs.otherfond.focus();
-					//   return false
-					// }
+			    if(!this.declareForm.exponame){
+			      this.$message({
+			        showClose: true,
+			        message: "请填写展会名称！",
+			        type: "error"
+			      })
+						this.$refs.exponame.focus();
+			      return false
+			    }
+			    if(!this.declareForm.hostcomp){
+			      this.$message({
+			        showClose: true,
+			        message: "请填写展会主办单位！",
+			        type: "error"
+			      })
+						this.$refs.hostcomp.focus();
+			      return false
+			    }
+			    if(!this.declareForm.fondcomp){
+			      this.$message({
+			        showClose: true,
+			        message: "请填写承办单位！",
+			        type: "error"
+			      })
+						this.$refs.fondcomp.focus();
+			      return false
+			    }
+			    if(!this.declareForm.authobj){
+			      this.$message({
+			        showClose: true,
+			        message: "请填写批准单位！",
+			        type: "error"
+			      })
+						this.$refs.authobj.focus();
+			      return false
+			    }
+			    if(!this.declareForm.authnum){
+			      this.$message({
+			        showClose: true,
+			        message: "请填写批准文号！",
+			        type: "error"
+			      })
+						this.$refs.authnum.focus();
+			      return false
+			    }
+			    if(!this.declareForm.hostpls){
+			      this.$message({
+			        showClose: true,
+			          message: "举办地点！",
+			        type: "error"
+			      })
+						this.$refs.hostpls.focus();
+			      return false
+			    }
+					if(!this.declareForm.hosttime){
+					  this.$message({
+					    showClose: true,
+					    message: "请填写举办时间！",
+					    type: "error"
+					  })
+						this.$refs.hosttime.focus();
+					  return false
+					}
+					if(!this.declareForm.hostcrlc){
+					  this.$message({
+					    showClose: true,
+					    message: "请填写举办周期！",
+					    type: "error"
+					  })
+						this.$refs.hostcrlc.focus();
+					  return false
+					}
+					if(!this.declareForm.hostarea){
+					  this.$message({
+					    showClose: true,
+					    message: "请填写举办面积！",
+					    type: "error"
+					  })
+						this.$refs.hostarea.focus();
+					  return false
+					}
+					if(!this.declareForm.expocont){
+					  this.$message({
+					    showClose: true,
+					    message: "请填写展会内容！",
+					    type: "error"
+					  })
+						this.$refs.expocont.focus();
+					  return false
+					}
+					if(!this.declareForm.expofrom1){
+					  this.$message({
+					    showClose: true,
+					    message: "请填写国内参展商来源！",
+					    type: "error"
+					  })
+						this.$refs.expofrom1.focus();
+					  return false
+					}
+					if(!this.declareForm.expofrom2){
+					  this.$message({
+					    showClose: true,
+					    message: "请填写国外参展商来源！",
+					    type: "error"
+					  })
+						this.$refs.expofrom2.focus();
+					  return false
+					}
+					if(!(this.declareForm.viewfrom1 || this.declareForm.viewfrom2)){
+					  this.$message({
+					    showClose: true,
+					    message: "请填写观众构成！",
+					    type: "error"
+					  })
+						this.$refs.viewfrom1.focus();
+					  return false
+					}
+					if(!this.declareForm.finanfrom){
+					  this.$message({
+					    showClose: true,
+					    message: "请填写拨款单位！",
+					    type: "error"
+					  })
+						this.$refs.finanfrom.focus();
+					  return false
+					}
+					if(!this.declareForm.finanfond){
+					  this.$message({
+					    showClose: true,
+					    message: "请填写金额！",
+					    type: "error"
+					  })
+						this.$refs.finanfond.focus();
+					  return false
+					}
+					if(!this.declareForm.otherfrom){
+					  this.$message({
+					    showClose: true,
+					    message: "请填写资金来源！",
+					    type: "error"
+					  })
+						this.$refs.otherfrom.focus();
+					  return false
+					}
+					if(!this.declareForm.otherfond){
+					  this.$message({
+					    showClose: true,
+					    message: "请填写其他来源金额！",
+					    type: "error"
+					  })
+						this.$refs.otherfond.focus();
+					  return false
+					}
 
-					// if(!this.declareForm.content){
-					//   this.$message({
-					//     showClose: true,
-					//     message: "请填写内容简述！",
-					//     type: "error"
-					//   })
-					// 	this.$refs.content.focus();
-					//   return false
-					// }
+					if(!this.declareForm.content){
+					  this.$message({
+					    showClose: true,
+					    message: "请填写内容简述！",
+					    type: "error"
+					  })
+						this.$refs.content.focus();
+					  return false
+					}
 					let ip1 = this.$refs.inputFile1;
 					let ip2 = this.$refs.inputFile2;
           var formdata = new FormData()
@@ -532,7 +532,7 @@ export default {
 
           // })
           var axios = require('axios')
-					axios.post('http://192.168.1.102:8445/api/handin/detail', formdata)
+					axios.post('http://192.168.1.107:8445/api/handin/detail', formdata)
 			      .then(successResponse => {
 			        if (successResponse.data.code === 0) {			
                 this.$router.push('/').catch(()=>{})
