@@ -10,17 +10,12 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
     token: Cookies.get("token"),
-    face: Cookies.get("face"),
-    userKind:Cookies.get("userKind")
+    face: Cookies.get("face")
   },
   mutations: {
     setToken (state, token) {
       state.token = token
       Cookies.set("token", token, { expires: 1 / 24 })
-    },
-    setUserKind (state, userKind) {
-      state.userKind = userKind
-      Cookies.set("userKind", userKind, { expires: 1 / 24 })
     },
     setFace (state, face) {
       state.face = face
@@ -35,12 +30,6 @@ const store = new Vuex.Store({
         resolve()
       })
     },
-    setUserKind ({commit}, userKind) {
-      return new Promise((resolve, reject) => {
-        commit("setUserKind", userKind)
-        resolve()
-      })
-    },
     setFace ({commit}, face) {
       return new Promise((resolve, reject) => {
         commit("setFace", face)
@@ -51,7 +40,6 @@ const store = new Vuex.Store({
   getters: {
     addRouters: state => state.routerData.addRouters,
     token: state => state.token,
-    userKind: state => state.userKind,
     face: state => state.face,
     info: state => state.role.info,
     routers: state => state.routerData.routers,
@@ -63,7 +51,6 @@ const store = new Vuex.Store({
     left: state => state.layout.left,
     top: state => state.layout.top,
     rightNav: state => state.layout.rightNav
-
   },
   modules: {
     routerData,

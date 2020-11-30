@@ -1,9 +1,9 @@
 <!--  -->
 <template>
 <div class=''>
-  <provin-handin v-if="kind==0"></provin-handin>
-  <firm-handin v-if="kind == 1"></firm-handin>
-  <foreign-handin v-if="kind == 2"></foreign-handin>
+  <provin-handin v-if="a=True"></provin-handin>
+  <firm-handin v-if=""></firm-handin>
+  <foreign-handin v-if=""></foreign-handin>
 
 </div>
 </template>
@@ -27,7 +27,6 @@ components: {
 data() {
 //这里存放数据
 return {
-  kind : 0
 
 };
 },
@@ -41,8 +40,7 @@ methods: {
 },
 //生命周期 - 创建完成（可以访问当前this实例）
 created() {
-  console.log(this.$store.getters.userKind)
-this.kind = this.$store.getters.userKind
+
 },
 //生命周期 - 挂载完成（可以访问DOM元素）
 mounted() {

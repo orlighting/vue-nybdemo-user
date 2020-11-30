@@ -34,9 +34,8 @@ export default {
     computed:{
         getCheckState(){
             if(this.exhiListItem.checkState == 0){return '审核中' }
-            if(this.exhiListItem.checkState == 1){return '展会计划待过会' }
-            if(this.exhiListItem.checkState == 2){return '展会计划已印发' }
-            if(this.exhiListItem.checkState == 3){return '未通过，重新提交' }
+            if(this.exhiListItem.checkState == 1){return '已通过' }
+            if(this.exhiListItem.checkState == 2){return '未通过，重新提交' }
         }
     },
     method: {
@@ -48,7 +47,7 @@ export default {
 
 <style scoped>
 .exhi_list_item {
-    width: 320px;
+    /* width: 320px; */
     display: flex;
     border-bottom: 1px solid #666;
     text-align:center;
@@ -60,7 +59,7 @@ export default {
 }
 
 .item {
-    width: 340px;
+    /* width: 340px; */
     white-space: nowrap;
     text-overflow: ellipsis;
     

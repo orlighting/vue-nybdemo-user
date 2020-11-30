@@ -1,33 +1,21 @@
 <!--  -->
 <template>
-<div class=''>
-  <provin-handin v-if="kind==0"></provin-handin>
-  <firm-handin v-if="kind == 1"></firm-handin>
-  <foreign-handin v-if="kind == 2"></foreign-handin>
-
-</div>
+<div class=''></div>
 </template>
 
 <script>
 //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 //例如：import 《组件名称》 from '《组件路径》';
-import provinHandin from './provinHandin';
-import firmHandin from './firmHandin';
-import foreignHandin from './foreignHandin';
-import ForeignHandin from './foreignHandin.vue';
+import provinHandin from './provinHandin.vue';
+import firmHandin from './firmHandin.vue';
+import foreignHandin from './foreignHandin.vue';
 export default {
 //import引入的组件需要注入到对象中才能使用
 
-components: {
-  provinHandin,
-  firmHandin,
-  foreignHandin
-
-},
+components: {},
 data() {
 //这里存放数据
 return {
-  kind : 0
 
 };
 },
@@ -41,8 +29,7 @@ methods: {
 },
 //生命周期 - 创建完成（可以访问当前this实例）
 created() {
-  console.log(this.$store.getters.userKind)
-this.kind = this.$store.getters.userKind
+
 },
 //生命周期 - 挂载完成（可以访问DOM元素）
 mounted() {

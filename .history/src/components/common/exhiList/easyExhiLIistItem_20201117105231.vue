@@ -34,9 +34,8 @@ export default {
     computed:{
         getCheckState(){
             if(this.exhiListItem.checkState == 0){return '审核中' }
-            if(this.exhiListItem.checkState == 1){return '展会计划待过会' }
-            if(this.exhiListItem.checkState == 2){return '展会计划已印发' }
-            if(this.exhiListItem.checkState == 3){return '未通过，重新提交' }
+            if(this.exhiListItem.checkState == 1){return '已通过' }
+            if(this.exhiListItem.checkState == 2){return '未通过，重新提交' }
         }
     },
     method: {

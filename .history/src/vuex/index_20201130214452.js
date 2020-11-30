@@ -10,8 +10,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
     token: Cookies.get("token"),
-    face: Cookies.get("face"),
-    userKind:Cookies.get("userKind")
+    face: Cookies.get("face")
   },
   mutations: {
     setToken (state, token) {

@@ -44,10 +44,10 @@
           </div>
         </div>
       </el-col>
-      <el-col :span="7">
+      <el-col :span="8">
         <detail-exhi-list></detail-exhi-list>
       </el-col>
-      <el-col :span="7">
+      <el-col :span="6">
         <easy-exhi-list></easy-exhi-list>
       </el-col>
       <el-col :span="2">

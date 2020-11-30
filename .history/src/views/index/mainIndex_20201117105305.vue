@@ -339,13 +339,10 @@ $list1: $bluee $pinkk $yelloww $grennn $purplee $lightBluee;
   margin-right: 20px;
 }
 .el-col {
-  margin-right: 5px;
+  margin-right: 10px;
 }
 .main {
   width: 100%;
-  display: flex;
-}
-.el-row{
   display: flex;
 }
 </style>

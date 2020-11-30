@@ -111,7 +111,7 @@ export default {
           })
           .then((successResponse) => {
             if (successResponse.data.code === 0) {
-              that.$store.dispatch("setUserKind", successResponse.data.data.kind);
+              that.$store.dispatch("setUserKind", successResponse.data.kind);
               console.log(successResponse.data)
               console.log(successResponse.data.data.kind)
               // 将 id 设置为 token 存储在 store，仅为测试效果，实际存储 token 以后台返回为准
