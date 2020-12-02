@@ -8,18 +8,15 @@
           <div class="helpinfo">
             <p><font class="hptext">请省部级认真填写展会活动登记表，所有选项均为必填，没有请填无，提交后无法修改</font></p>
           </div>
-          <el-form-item style="margin-top: 20px">
-            <label>展会信息id</label>
-            <el-input type="number" ref="detailId" v-model="declareForm.detailId" auto-complete="off"></el-input>
-          </el-form-item>
 
-          <el-form-item>
+
+          <el-form-item style="margin-top: 20px">
             <label>参展国家和地区数量</label>
             <el-input type="number" ref="countryNum" v-model="declareForm.countryNum" auto-complete="off"></el-input>
           </el-form-item>
           <el-form-item>
             <label>参展企业数量</label>
-          <el-input type="number" ref="companyNum" v-model="declareForm.companyNum" auto-complete="off"></el-input>
+          <el-input type="number" ref=" companyNum" v-model="declareForm. companyNum" auto-complete="off"></el-input>
           </el-form-item>
           <el-form-item>
             <label>展出总面积</label>
@@ -66,7 +63,6 @@ export default {
   data() {
     return {
       declareForm: {
-        detailId:"",
         countryNum: "",
         companyNum: "",
         area: "",
@@ -78,11 +74,6 @@ export default {
   },
   methods: {
     declareFormed() {
-      if (!this.declareForm.detailId) {
-        warningOpen("请填写展会ID");
-        this.$refs.detailId.focus();
-        return false;
-      }
       if (!this.declareForm.countryNum) {
         warningOpen("请填写参展国家和地区数量");
         this.$refs.countryNum.focus();
@@ -123,8 +114,7 @@ export default {
       }
 
       formdata.append("userId", this.$store.getters.token);
-      formdata.append("kind", this.$store.getters.userKind);
-      formdata.append("detailId", this.declareForm.detailId);
+      formdata.append("kind", this.$store.getters.kind);
       formdata.append("countryNum", this.declareForm.countryNum);
       // 财政资金的拨款金额
       formdata.append("companyNum", this.declareForm.companyNum);
@@ -147,14 +137,13 @@ export default {
         .then((successResponse) => {
           if (successResponse.data.code === 0) {
             this.$router.push("/").catch(() => {});
-          } else if(successResponse.data.code === 6001) {
-							this.$message({
-								showClose: true,
-								message: "展会信息id有误！",
-								type: "error"
-							})
-							this.$refs.detailId.focus();
-						}
+          } else {
+            this.$message({
+              showClose: true,
+              message: "提交失败！",
+              type: "error",
+            });
+          }
         })
         .catch((failResponse) => {});
     },

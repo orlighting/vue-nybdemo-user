@@ -78,7 +78,7 @@ export default {
 .item .name {
     display: inline-block;
     width: 110px;
-    padding-left: 10px;
+    padding: 10px;
     overflow: hidden;      /*溢出隐藏*/
     white-space: nowrap;	/*规定文本不进行换行*/
     text-overflow: ellipsis;	/*当对象内文本溢出时显示省略标记（...）*/

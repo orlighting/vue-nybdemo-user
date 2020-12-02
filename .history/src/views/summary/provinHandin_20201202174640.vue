@@ -19,7 +19,7 @@
           </el-form-item>
           <el-form-item>
             <label>参展企业数量</label>
-          <el-input type="number" ref="companyNum" v-model="declareForm.companyNum" auto-complete="off"></el-input>
+          <el-input type="number" ref=" companyNum" v-model="declareForm. companyNum" auto-complete="off"></el-input>
           </el-form-item>
           <el-form-item>
             <label>展出总面积</label>
@@ -123,7 +123,7 @@ export default {
       }
 
       formdata.append("userId", this.$store.getters.token);
-      formdata.append("kind", this.$store.getters.userKind);
+      formdata.append("kind", this.$store.getters.kind);
       formdata.append("detailId", this.declareForm.detailId);
       formdata.append("countryNum", this.declareForm.countryNum);
       // 财政资金的拨款金额

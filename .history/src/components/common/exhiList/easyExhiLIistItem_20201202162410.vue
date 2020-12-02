@@ -69,7 +69,7 @@ export default {
 .item .iid {
     display: inline-block;
     width: 70px;
-    padding: 10px;
+    /* padding: 10px; */
     text-align: center;
     
 
@@ -92,7 +92,7 @@ export default {
 .item .state {
     display: inline-block;
     width: 90px;
-    padding: 10px;
+    /* padding: 10px; */
 
     text-align: center;
 }

@@ -85,10 +85,7 @@ export default {
     text-align: center;
 
 }
-        .item .name:hover{
-            overflow: auto;
-            white-space: normal;
-        }
+
 .item .state {
     display: inline-block;
     width: 90px;

@@ -6,7 +6,7 @@
 
         <el-form :model="declareForm" status-icon label-width="30px" class="demo-ruleForm" style="padding-right: 30px" enctype='multipart/form-data'>
           <div class="helpinfo">
-            <p><font class="hptext">请省部级认真填写展会活动登记表，所有选项均为必填，没有请填无，提交后无法修改</font></p>
+            <p><font class="hptext">请企事业认真填写展会活动登记表，所有选项均为必填，没有请填无，提交后无法修改</font></p>
           </div>
           <el-form-item style="margin-top: 20px">
             <label>展会信息id</label>
@@ -29,7 +29,7 @@
 
               <el-form-item>
                 <label>采购商数量</label>
-    <el-input type="number" ref=" buyerNum" v-model="declareForm.buyerNum" auto-complete="off"></el-input>
+    <el-input type="number" ref="buyerNum" v-model="declareForm.buyerNum" auto-complete="off"></el-input>
               </el-form-item>
               <el-form-item>
                 <label>宣传媒体数</label>
@@ -123,7 +123,7 @@ export default {
       }
 
       formdata.append("userId", this.$store.getters.token);
-      formdata.append("kind", this.$store.getters.userKind);
+      formdata.append("kind", this.$store.getters.kind);
       formdata.append("detailId", this.declareForm.detailId);
       formdata.append("countryNum", this.declareForm.countryNum);
       // 财政资金的拨款金额

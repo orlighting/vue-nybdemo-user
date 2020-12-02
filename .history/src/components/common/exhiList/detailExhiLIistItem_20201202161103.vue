@@ -34,8 +34,9 @@ export default {
     computed:{
         getCheckState(){
             if(this.exhiListItem.checkState == 0){return '审核中' }
-            if(this.exhiListItem.checkState == 1){return '已通过' }
-            if(this.exhiListItem.checkState == 2){return '未通过，重新提交' }
+            if(this.exhiListItem.checkState == 1){return '展会计划待过会' }
+            if(this.exhiListItem.checkState == 2){return '展会计划已印发' }
+            if(this.exhiListItem.checkState == 3){return '未通过，重新提交' }
         }
     },
     method: {
@@ -68,7 +69,7 @@ export default {
 
 .item .iid {
     display: inline-block;
-    width: 70px;
+    width: 90px;
     padding: 10px;
     text-align: center;
     
@@ -77,22 +78,20 @@ export default {
 
 .item .name {
     display: inline-block;
-    width: 110px;
-    padding-left: 10px;
+    width: 130px;
+    padding: 10px;
     overflow: hidden;      /*溢出隐藏*/
     white-space: nowrap;	/*规定文本不进行换行*/
     text-overflow: ellipsis;	/*当对象内文本溢出时显示省略标记（...）*/
     text-align: center;
 
 }
-        .item .name:hover{
-            overflow: auto;
-            white-space: normal;
-        }
+
 .item .state {
     display: inline-block;
     width: 90px;
     padding: 10px;
+    /* margin-left: 5px; */
 
     text-align: center;
 }
