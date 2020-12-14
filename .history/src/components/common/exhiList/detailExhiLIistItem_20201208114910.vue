@@ -1,0 +1,98 @@
+<template>
+<div class="exhi_list_item">
+    <div class="item">
+        <div class="meetId">{{exhiListItem.meetId}}</div>
+        <div class="time">{{exhiListItem.time}}</div>
+        <div class="state">{{getCheckState}}</div>
+    </div>
+
+</div>
+</template>
+
+<script>
+export default {
+    name: "exhiListItem",
+    props: {
+        exhiListItem: {
+            type: Object,
+            default () {
+                return {
+                    meetId:'123',
+                    time: "12312312",
+                    checkState: 0
+                };
+            },
+        }
+    },
+    data() {
+        return {}
+    },
+    created() {
+        // console.log(this.itemInfo)
+    },
+    computed:{
+        getCheckState(){
+            if(this.exhiListItem.checkState == 0){return '审核中' }
+            if(this.exhiListItem.checkState == 1){return '展会计划待过会' }
+            if(this.exhiListItem.checkState == 2){return '展会计划已印发' }
+            if(this.exhiListItem.checkState == 3){return '未通过，重新提交' }
+        }
+    },
+    method: {
+
+    }
+
+}
+</script>
+
+<style scoped>
+.exhi_list_item {
+    width: 320px;
+    display: flex;
+    border-bottom: 1px solid #666;
+    text-align:center;
+    align-items: center;
+    font-size: 8px;
+    
+
+}
+
+.item {
+    width: 340px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    
+
+}
+
+.item .time {
+    display: inline-block;
+    width: 150px;
+    padding: 10px;
+    text-align: center;
+    
+}
+
+.item .meetId {
+    display: inline-block;
+    width: 130px;
+    padding: 0px;
+    overflow: hidden;      /*溢出隐藏*/
+    white-space: nowrap;	/*规定文本不进行换行*/
+    text-overflow: ellipsis;	/*当对象内文本溢出时显示省略标记（...）*/
+    text-align: center;
+
+}
+        .item .name:hover{
+            overflow: auto;
+            white-space: normal;
+        }
+.item .state {
+    display: inline-block;
+    width: 150px;
+    padding: 10px;
+    /* margin-left: 5px; */
+
+    text-align: center;
+}
+</style>
