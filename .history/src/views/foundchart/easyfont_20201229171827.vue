@@ -298,8 +298,7 @@ export default {
   },
   created(){
     getEasy(this.$store.getters.token).then(res => {
-      console.log(res.data)
-      if(res.data){
+      if(res){
       this.declareForm = res.data,
       this.declareForm.leaderN = parseInt(res.data.leaderState/10000),
       this.declareForm.leaderF= parseInt((res.data.leaderState%10000)/10),

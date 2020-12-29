@@ -60,7 +60,6 @@ const store = new Vuex.Store({
     }
   },
   getters: {
-    checkState: state => state.checkState,
     addRouters: state => state.routerData.addRouters,
     token: state => state.token,
     userKind: state => state.userKind,

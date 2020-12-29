@@ -83,7 +83,6 @@ export default {
   },
 
   created() {
-    console.log(this.$store.getters);
     // this.$axios
     // 		.post('/message/notLookCount', {
     // 			userId: this.$store.getters.token,

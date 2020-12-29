@@ -60,7 +60,7 @@
           </el-row>
 					<el-form-item enctype="multipart/form-data">
 						<div class="authorizeFile"> 
-							<label>去年审批文件</label><br />
+							<label>批准审核文件</label><br />
 							<input type="file" ref="authorizeFile"  
               accept=".pdf" name="authorizeFile"></input>
 						</div>
@@ -78,8 +78,9 @@
                           placeholder="xx省 xx市 xx区 xx路xxx号"></el-input>
               </el-form-item>
             </el-col>
-
-                            <el-date-picker
+            <el-col :span="10">
+              <el-form-item>
+                <el-date-picker
                   v-model="declareForm.Times"
                   type="datetimerange"
                   size = 'large'
@@ -89,24 +90,31 @@
                   value-format="yyyy-MM-dd HH:mm:ss"
                   :default-time="['8:00:00', '18:00:00']">
                 </el-date-picker>
-            <!-- <el-col :span="7">
-              <el-form-item>
-                <label>开始时间</label>
-                <el-input type="date" ref="beginTime" name="beginTime" v-model="declareForm.beginTime" auto-complete="off"
-                          placeholder=""></el-input>
+                <!-- <label>开始时间</label>
+                <el-date-picker type="datetime" ref="beginTime" name="beginTime" v-model="declareForm.beginTime" auto-complete="off"
+                          placeholder=""
+                          
+                ></el-date-picker>
               </el-form-item>
             </el-col>
             <p class="timeMid">——</p>
             <el-col :span="7">
               <el-form-item>
                 <label>结束时间</label>
-                <el-input type="date" ref="endTime" name="endTime" v-model="declareForm.endTime" auto-complete="off"
-                          placeholder=""></el-input>
+                <el-date-picker type="datetime" ref="endTime" name="endTime" v-model="declareForm.endTime" auto-complete="off"
+                          placeholder=""></el-date-picker> -->
               </el-form-item>
-            </el-col> -->
+            </el-col>
           </el-row>
 
           <el-row>
+            <el-col :span="12">
+              <el-form-item>
+                <label>举办周期（年）</label>
+                <el-input type="number" ref="cycle" v-model="declareForm.cycle" auto-complete="off"
+                          placeholder="请填写纯数字，默认单位‘年’"></el-input>
+              </el-form-item>
+            </el-col>
             <el-col :span="12">
               <el-form-item>
                 <label>展览面积（m²）</label>
@@ -235,7 +243,16 @@
 							<label>招展招商方案</label><br/>
 							<input type="file" ref="inputFile2"  accept=".pdf" name="investmentPlanFile"></input>
 						</div>
-						
+						<div class="inputFile3"> 
+							<label>可行性报告</label><br />
+							<input type="file" ref="inputFile3"  
+              accept=".pdf" name=""></input>
+						</div>
+						<div class="inputFile4"> 
+							<label>承办单位办展条件说明</label><br />
+							<input type="file" ref="inputFile4"  
+              accept=".pdf" name=""></input>
+						</div>		
 					</el-form-item>
               <!-- <form enctype='multipart/form-data' action="http://192.168.1.101:8445/api/handin/detail" method="post" target="#">
                 <input type="file" name='preExpoFile' accept=".pdf"  ref="inputFile1">
@@ -258,22 +275,27 @@
 </template>
 
 <script>
-import { getEasy } from '../../network/getForm';
+import {sendDetail} from '../../network/sendForm';
 import {getDetail} from '../../network/getForm';
+
 export default {
-  name: "easyfont",
+  name: "userfont",
+  components: {},
   data() {
     return {
       declareForm: {
         name: "",
         hostComp: "",
         fundComp: "",
-        guideComp: "",
+        orderComp: "",
         supportComp: "",
         authObj: "",
         authNum: "",
         place: "",
+        startTime:'',
+        endTime:'',
         Times:[],
+
         cycle: "",
         area: "",
         meetState: "",
@@ -284,7 +306,6 @@ export default {
         willInvite: "",
         capitalSource: "",
         finanfrom: "",
-        orderComp:'',
         finanFund: "",
         selfFund: "",
 
@@ -295,37 +316,6 @@ export default {
         leadersD: false,
       },
     };
-  },
-  created(){
-    getEasy(this.$store.getters.token).then(res => {
-      console.log(res.data)
-      if(res.data){
-      this.declareForm = res.data,
-      this.declareForm.leaderN = parseInt(res.data.leaderState/10000),
-      this.declareForm.leaderF= parseInt((res.data.leaderState%10000)/10),
-      this.declareForm.leadersA= parseInt((res.data.leaderState%1000)/10),
-      this.declareForm.leadersP= parseInt((res.data.leaderState%100)/10),
-      this.declareForm.leadersD= parseInt(res.data.leaderState%10),
-      this.declareForm.Times = [res.data.startTime,res.data.endTime],
-      console.log(this.declareForm)
-
-      }else{
-          getDetail(this.$store.getters.token).then(res => {
-            this.declareForm = res.data,
-            this.declareForm.leaderN = parseInt(res.data.leaderState/10000),
-            this.declareForm.leaderF= parseInt((res.data.leaderState%10000)/10),
-            this.declareForm.leadersA= parseInt((res.data.leaderState%1000)/10),
-            this.declareForm.leadersP= parseInt((res.data.leaderState%100)/10),
-            this.declareForm.leadersD= parseInt(res.data.leaderState%10),
-            this.declareForm.Times = [res.data.startTime,res.data.endTime],
-            console.log(this.declareForm)
-
-
-    })        
-
-      }
-    })
-
   },
   computed: {
     leaderPresent() {
@@ -338,164 +328,187 @@ export default {
       );
     },
   },
+  created(){
+    getDetail(this.$store.getters.token).then(res => {
+      if(res){
+      this.declareForm = res.data,
+      this.declareForm.leaderN = parseInt(res.data.leaderState/10000),
+      this.declareForm.leaderF= parseInt((res.data.leaderState%10000)/10),
+      this.declareForm.leadersA= parseInt((res.data.leaderState%1000)/10),
+      this.declareForm.leadersP= parseInt((res.data.leaderState%100)/10),
+      this.declareForm.leadersD= parseInt(res.data.leaderState%10),
+      this.declareForm.Times = [res.data.startTime,res.data.endTime],
+      console.log(this.declareForm)
+
+      }
+
+
+
+    })
+
+  },
   methods: {
+
     declareFormed() {
-      if (!this.declareForm.name) {
-        this.$message({
-          showClose: true,
-          message: "请填写展会名称！",
-          type: "error",
-        });
-        this.$refs.name.focus();
-        return false;
-      }
-      if (!this.declareForm.hostComp) {
-        this.$message({
-          showClose: true,
-          message: "请填写展会主办单位！",
-          type: "error",
-        });
-        this.$refs.hostComp.focus();
-        return false;
-      }
-      if (!this.declareForm.fundComp) {
-        this.$message({
-          showClose: true,
-          message: "请填写承办单位！",
-          type: "error",
-        });
-        this.$refs.fundComp.focus();
-        return false;
-      }
-      if (!this.declareForm.authObj) {
-        this.$message({
-          showClose: true,
-          message: "请填写批准单位！",
-          type: "error",
-        });
-        this.$refs.authObj.focus();
-        return false;
-      }
-      if (!this.declareForm.authNum) {
-        this.$message({
-          showClose: true,
-          message: "请填写批准文号！",
-          type: "error",
-        });
-        this.$refs.authNum.focus();
-        return false;
-      }
-      if (!this.declareForm.place) {
-        this.$message({
-          showClose: true,
-          message: "举办地点！",
-          type: "error",
-        });
-        this.$refs.place.focus();
-        return false;
-      }
-      if (!this.declareForm.hosttime) {
-        this.$message({
-          showClose: true,
-          message: "请填写举办时间！",
-          type: "error",
-        });
-        this.$refs.hosttime.focus();
-        return false;
-      }
-      if (!this.declareForm.cycle) {
-        this.$message({
-          showClose: true,
-          message: "请填写举办周期！",
-          type: "error",
-        });
-        this.$refs.cycle.focus();
-        return false;
-      }
-      if (!this.declareForm.area) {
-        this.$message({
-          showClose: true,
-          message: "请填写举办面积！",
-          type: "error",
-        });
-        this.$refs.area.focus();
-        return false;
-      }
-      if (!this.declareForm.meetState) {
-        this.$message({
-          showClose: true,
-          message: "请填写展会内容！",
-          type: "error",
-        });
-        this.$refs.meetState.focus();
-        return false;
-      }
-      if (!this.declareForm.expofrom1) {
-        this.$message({
-          showClose: true,
-          message: "请填写国内参展商来源！",
-          type: "error",
-        });
-        this.$refs.expofrom1.focus();
-        return false;
-      }
-      if (!this.declareForm.expofrom2) {
-        this.$message({
-          showClose: true,
-          message: "请填写国外参展商来源！",
-          type: "error",
-        });
-        this.$refs.expofrom2.focus();
-        return false;
-      }
-      if (!(this.declareForm.view1 || this.declareForm.view2)) {
-        this.$message({
-          showClose: true,
-          message: "请填写观众构成！",
-          type: "error",
-        });
-        this.$refs.view1.focus();
-        return false;
-      }
-      if (!this.declareForm.finanfrom) {
-        this.$message({
-          showClose: true,
-          message: "请填写拨款单位！",
-          type: "error",
-        });
-        this.$refs.finanfrom.focus();
-        return false;
-      }
-      if (!this.declareForm.finanFund) {
-        this.$message({
-          showClose: true,
-          message: "请填写金额！",
-          type: "error",
-        });
-        this.$refs.finanFund.focus();
-        return false;
-      }
-      if (!this.declareForm.otherfrom) {
-        this.$message({
-          showClose: true,
-          message: "请填写资金来源！",
-          type: "error",
-        });
-        this.$refs.otherfrom.focus();
-        return false;
-      }
-      if (!this.declareForm.otherfond) {
-        this.$message({
-          showClose: true,
-          message: "请填写其他来源金额！",
-          type: "error",
-        });
-        this.$refs.otherfond.focus();
-        return false;
-      }
+      // if (!this.declareForm.name) {
+      //   this.$message({
+      //     showClose: true,
+      //     message: "请填写展会名称！",
+      //     type: "error",
+      //   });
+      //   this.$refs.name.focus();
+      //   return false;
+      // }
+      // if (!this.declareForm.hostComp) {
+      //   this.$message({
+      //     showClose: true,
+      //     message: "请填写展会主办单位！",
+      //     type: "error",
+      //   });
+      //   this.$refs.hostComp.focus();
+      //   return false;
+      // }
+      // if (!this.declareForm.fundComp) {
+      //   this.$message({
+      //     showClose: true,
+      //     message: "请填写承办单位！",
+      //     type: "error",
+      //   });
+      //   this.$refs.fundComp.focus();
+      //   return false;
+      // }
+      // if (!this.declareForm.authObj) {
+      //   this.$message({
+      //     showClose: true,
+      //     message: "请填写批准单位！",
+      //     type: "error",
+      //   });
+      //   this.$refs.authObj.focus();
+      //   return false;
+      // }
+      // if (!this.declareForm.authNum) {
+      //   this.$message({
+      //     showClose: true,
+      //     message: "请填写批准文号！",
+      //     type: "error",
+      //   });
+      //   this.$refs.authNum.focus();
+      //   return false;
+      // }
+      // if (!this.declareForm.place) {
+      //   this.$message({
+      //     showClose: true,
+      //     message: "举办地点！",
+      //     type: "error",
+      //   });
+      //   this.$refs.place.focus();
+      //   return false;
+      // }
+      // if (!this.declareForm.hosttime) {
+      //   this.$message({
+      //     showClose: true,
+      //     message: "请填写举办时间！",
+      //     type: "error",
+      //   });
+      //   this.$refs.hosttime.focus();
+      //   return false;
+      // }
+      // if (!this.declareForm.cycle) {
+      //   this.$message({
+      //     showClose: true,
+      //     message: "请填写举办周期！",
+      //     type: "error",
+      //   });
+      //   this.$refs.cycle.focus();
+      //   return false;
+      // }
+      // if (!this.declareForm.area) {
+      //   this.$message({
+      //     showClose: true,
+      //     message: "请填写举办面积！",
+      //     type: "error",
+      //   });
+      //   this.$refs.area.focus();
+      //   return false;
+      // }
+      // if (!this.declareForm.meetState) {
+      //   this.$message({
+      //     showClose: true,
+      //     message: "请填写展会内容！",
+      //     type: "error",
+      //   });
+      //   this.$refs.meetState.focus();
+      //   return false;
+      // }
+      // if (!this.declareForm.expofrom1) {
+      //   this.$message({
+      //     showClose: true,
+      //     message: "请填写国内参展商来源！",
+      //     type: "error",
+      //   });
+      //   this.$refs.expofrom1.focus();
+      //   return false;
+      // }
+      // if (!this.declareForm.expofrom2) {
+      //   this.$message({
+      //     showClose: true,
+      //     message: "请填写国外参展商来源！",
+      //     type: "error",
+      //   });
+      //   this.$refs.expofrom2.focus();
+      //   return false;
+      // }
+      // if (!(this.declareForm.view1 || this.declareForm.view2)) {
+      //   this.$message({
+      //     showClose: true,
+      //     message: "请填写观众构成！",
+      //     type: "error",
+      //   });
+      //   this.$refs.view1.focus();
+      //   return false;
+      // }
+      // if (!this.declareForm.finanfrom) {
+      //   this.$message({
+      //     showClose: true,
+      //     message: "请填写拨款单位！",
+      //     type: "error",
+      //   });
+      //   this.$refs.finanfrom.focus();
+      //   return false;
+      // }
+      // if (!this.declareForm.finanFund) {
+      //   this.$message({
+      //     showClose: true,
+      //     message: "请填写金额！",
+      //     type: "error",
+      //   });
+      //   this.$refs.finanFund.focus();
+      //   return false;
+      // }
+      // if (!this.declareForm.otherfrom) {
+      //   this.$message({
+      //     showClose: true,
+      //     message: "请填写资金来源！",
+      //     type: "error",
+      //   });
+      //   this.$refs.otherfrom.focus();
+      //   return false;
+      // }
+      // if (!this.declareForm.selfFund) {
+      //   this.$message({
+      //     showClose: true,
+      //     message: "请填写其他来源金额！",
+      //     type: "error",
+      //   });
+      //   this.$refs.selfFund.focus();
+      //   return false;
+      // }
+
       let ip0 = this.$refs.authorizeFile;
       let ip1 = this.$refs.inputFile1;
       let ip2 = this.$refs.inputFile2;
+      let ip3 = this.$refs.inputFile3;
+      let ip4 = this.$refs.inputFile4;
       var formdata = new FormData();
       // if (!(ip1.files[0] && ip2.files[0])) {
       //   this.$message({
@@ -506,15 +519,14 @@ export default {
       //   this.$refs.inputFile1.focus();
       //   return false;
       // }
-      //展会简称
       formdata.append("meetAddr", this.$store.getters.token);
       // 财政资金的拨款金额
       formdata.append("finanFund", this.declareForm.finanFund);
       // 其他来源的拨款金额
-      // formdata.append("otherFund", this.declareForm.otherfond);
+      formdata.append("selfFund", this.declareForm.selfFund);
       // 展会面积
       formdata.append("area", this.declareForm.area);
-      // 是否邀请国外参展商
+      // 是否邀请境外参展商或有关机构
       formdata.append("foreign", this.declareForm.foreign);
       // 展会名称
       formdata.append("name", this.declareForm.name);
@@ -552,18 +564,21 @@ export default {
       formdata.append("meetPlanFile", ip1.files[0]);
       //招展招商方案文档
       formdata.append("investmentPlanFile", ip2.files[0]);
+      //可行性报告文档
+      formdata.append("feasibilityFile", ip3.files[0]);
+      //承办单位办展条件说明
+      formdata.append("conditionStateFile", ip4.files[0]);
       //上级单位审核意见
       formdata.append("authFile", ip0.files[0]);
       //是否采购商参加
       formdata.append("view1", this.declareForm.view1);
       //是否消费者参加
       formdata.append("view2", this.declareForm.view2);
-      console.log(this.leaderPresent);
-      // console.log(formdata);
-      // console.log(formdata.get("finanFrom"));
 
-      // sendEasy(formdata)
-      //   .then((successResponse) => {
+      // console.log(this.leaderPresent);
+      // console.log(this.declareForm.Times[0]);
+      // console.log(formdata.get("finanFrom"));
+      // sendDetail(formdata).then(successResponse=>{
       //     if (successResponse.data.code === 0) {
       //       this.$router.push("/").catch(() => {});
       //     } else {
@@ -573,24 +588,35 @@ export default {
       //         type: "error",
       //       });
       //     }
+      // })
+      // .catch((failResponse) => {});
+      // sendDetail(formdata).then((successResponse) => {
+      //     if (successResponse.data.code === 0) {
+      //       this.$router.push("/").catch(() => {});
+      //     } else { c
+      //       this.$message({
+      //         showClose: true,
+      //         message: "提交失败！",
+      //         type: "error",
+      //       });
+      //     }
       //   })
       //   .catch((failResponse) => {});
-
-        var axios = require("axios");
-        axios
-          .post("http://10.28.251.188:8445/api/handin/easy", formdata)
-          .then((successResponse) => {
-            if (successResponse.data.code === 0) {
-              this.$router.push("/").catch(() => {});
-            } else {
-              this.$message({
-                showClose: true,
-                message: "提交失败！",
-                type: "error",
-              });
-            }
-          })
-          .catch((failResponse) => {});
+      var axios = require("axios");
+      axios
+        .post("http://10.28.251.188:8445/api/handin/detail", formdata)
+        .then((successResponse) => {
+          if (successResponse.data.code === 0) {
+            this.$router.push("/").catch(() => {});
+          } else { c
+            this.$message({
+              showClose: true,
+              message: "提交失败！",
+              type: "error",
+            });
+          }
+        })
+        .catch((failResponse) => {});
     },
   },
 };

@@ -11,8 +11,7 @@ const store = new Vuex.Store({
   state: {
     token: Cookies.get("token"),
     face: Cookies.get("face"),
-    userKind:Cookies.get("userKind"),
-    checkState:Cookies.get("checkState")
+    userKind:Cookies.get("userKind")
   },
   mutations: {
     setToken (state, token) {
@@ -60,7 +59,6 @@ const store = new Vuex.Store({
     }
   },
   getters: {
-    checkState: state => state.checkState,
     addRouters: state => state.routerData.addRouters,
     token: state => state.token,
     userKind: state => state.userKind,

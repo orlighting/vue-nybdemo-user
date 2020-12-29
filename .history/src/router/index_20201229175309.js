@@ -67,7 +67,7 @@ let defaultRouter = [
     iconCls: "fa fa-wpforms", // 图标样式class
     name: routeName.detafond,
     component: Layout,
-    hidden: store.getters.checkState == 2,
+    hidden: store.getters.checkState != 2,
     alone: true,
     children: [
       {
@@ -85,7 +85,7 @@ let defaultRouter = [
     iconCls: "fa fa-leanpub", // 图标样式class
     name:  routeName.easyfond,
     component: Layout,
-    hidden: store.getters.checkState != 2,
+    // hidden: router.app.$options.store.getters.checkState == 2,
     alone: true,
     children: [
       {

@@ -298,8 +298,7 @@ export default {
   },
   created(){
     getEasy(this.$store.getters.token).then(res => {
-      console.log(res.data)
-      if(res.data){
+      if(res){
       this.declareForm = res.data,
       this.declareForm.leaderN = parseInt(res.data.leaderState/10000),
       this.declareForm.leaderF= parseInt((res.data.leaderState%10000)/10),
@@ -578,7 +577,7 @@ export default {
 
         var axios = require("axios");
         axios
-          .post("http://10.28.251.188:8445/api/handin/easy", formdata)
+          .post("http://10.28.258.188:8445/api/handin/easy", formdata)
           .then((successResponse) => {
             if (successResponse.data.code === 0) {
               this.$router.push("/").catch(() => {});

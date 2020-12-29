@@ -31,7 +31,13 @@ Router.prototype.push = function push (location) {
 }
 
 Vue.use(Router)
-
+new Vue({
+  el: "#app",
+  store,
+  render: h => h(App),
+  components: {App},
+  template: "<App/>"
+})
 let routeName = en.routeName
 let defaultRouter = [
   { path: "/",
@@ -67,7 +73,7 @@ let defaultRouter = [
     iconCls: "fa fa-wpforms", // 图标样式class
     name: routeName.detafond,
     component: Layout,
-    hidden: store.getters.checkState == 2,
+    hidden: Vue.$store != 0,
     alone: true,
     children: [
       {
@@ -85,7 +91,7 @@ let defaultRouter = [
     iconCls: "fa fa-leanpub", // 图标样式class
     name:  routeName.easyfond,
     component: Layout,
-    hidden: store.getters.checkState != 2,
+    // hidden: router.app.$options.store.getters.checkState == 2,
     alone: true,
     children: [
       {

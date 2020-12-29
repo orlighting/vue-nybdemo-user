@@ -83,61 +83,60 @@ export default {
   },
   methods: {
     submitForm() {
-      // let that = this
+      let that = this
 
-      // that.$store.dispatch("setToken", that.loginForm.id).then(() => {
-      //   that.$router.push({path: "/"})
+      that.$store.dispatch("setToken", that.loginForm.id).then(() => {
+        that.$router.push({path: "/"})
 
-      // }).catch(res => {
-      //   that.$message({
-      //     showClose: true,
-      //     message: res,
-      //     type: "error"
-      //   })
-      // })
-      let that = this;
-      if (this.loginForm.meetAddr === "" || this.loginForm.password === "") {
-        this.$message({
+      }).catch(res => {
+        that.$message({
           showClose: true,
-          message: "账号或密码不能为空",
-          type: "error",
-        });
-        return false;
-      } else {
-        this.$axios
-          .post("/login/user", {
-            meetAddr: this.loginForm.meetAddr,
-            password: this.loginForm.password,
-          })
-          .then((successResponse) => {
-            if (successResponse.data.code === 0) {
-              that.$store.dispatch("setUserKind", successResponse.data.data.kind);
-              console.log(successResponse.data)
-              console.log(successResponse.data.data.kind)
-              // 将 id 设置为 token 存储在 store，仅为测试效果，实际存储 token 以后台返回为准
-              that.$store
-                .dispatch("setToken", that.loginForm.meetAddr)
-                .then(() => {
-                  that.$router.push({ path: "/" });
-                })
-                .catch((res) => {
-                  that.$message({
-                    showClose: true,
-                    message: res,
-                    type: "error",
-                  });
-                });
-            } else {
-              this.$message({
-                showClose: true,
-                message: "账号或密码错误！",
-                type: "error",
-              });
-            }
-          })
-          .catch((failResponse) => {});
-      }
-      
+          message: res,
+          type: "error"
+        })
+      })
+      // let that = this;
+      // if (this.loginForm.meetAddr === "" || this.loginForm.password === "") {
+      //   this.$message({
+      //     showClose: true,
+      //     message: "账号或密码不能为空",
+      //     type: "error",
+      //   });
+      //   return false;
+      // } else {
+      //   this.$axios
+      //     .post("/login/user", {
+      //       meetAddr: this.loginForm.meetAddr,
+      //       password: this.loginForm.password,
+      //     })
+      //     .then((successResponse) => {
+      //       if (successResponse.data.code === 0) {
+      //         that.$store.dispatch("setUserKind", successResponse.data.data.kind);
+      //         console.log(successResponse.data)
+      //         console.log(successResponse.data.data.kind)
+      //         // 将 id 设置为 token 存储在 store，仅为测试效果，实际存储 token 以后台返回为准
+      //         that.$store
+      //           .dispatch("setToken", that.loginForm.meetAddr)
+      //           .then(() => {
+      //             that.$router.push({ path: "/" });
+      //           })
+      //           .catch((res) => {
+      //             that.$message({
+      //               showClose: true,
+      //               message: res,
+      //               type: "error",
+      //             });
+      //           });
+      //       } else {
+      //         this.$message({
+      //           showClose: true,
+      //           message: "账号或密码错误！",
+      //           type: "error",
+      //         });
+      //       }
+      //     })
+      //     .catch((failResponse) => {});
+      // }
     },
   },
   mounted() {

@@ -1,6 +1,5 @@
 import en from "../i18n/lang/en"
 import Vue from "vue"
-import store from "../vuex"
 import Router from "vue-router"
 import Login from "@/views/login/index"
 import Layout from "@/views/layout/layout"
@@ -31,7 +30,6 @@ Router.prototype.push = function push (location) {
 }
 
 Vue.use(Router)
-
 let routeName = en.routeName
 let defaultRouter = [
   { path: "/",
@@ -67,7 +65,7 @@ let defaultRouter = [
     iconCls: "fa fa-wpforms", // 图标样式class
     name: routeName.detafond,
     component: Layout,
-    hidden: store.getters.checkState == 2,
+    hidden: router.app.$options.store.getters.checkState != 2,
     alone: true,
     children: [
       {
@@ -85,7 +83,7 @@ let defaultRouter = [
     iconCls: "fa fa-leanpub", // 图标样式class
     name:  routeName.easyfond,
     component: Layout,
-    hidden: store.getters.checkState != 2,
+    hidden: router.app.$options.store.getters.checkState == 2,
     alone: true,
     children: [
       {

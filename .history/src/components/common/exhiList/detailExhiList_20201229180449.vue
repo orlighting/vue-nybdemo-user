@@ -44,8 +44,8 @@ export default {
   created() {
     getDetailExhiState(this.$store.getters.token).then((res) => {
       this.exhiList = this.exhiList.concat(res.data);
-      console.log(res.data[0])
-      if(res.data[0]){
+      // console.log(res.data[0])
+      if(res){
         this.$store.dispatch('setState', res.data[0].checkState)
       }
       

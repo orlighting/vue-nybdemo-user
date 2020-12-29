@@ -67,7 +67,7 @@ let defaultRouter = [
     iconCls: "fa fa-wpforms", // 图标样式class
     name: routeName.detafond,
     component: Layout,
-    hidden: store.getters.checkState == 2,
+    hidden: store.getters.checkState != 0,
     alone: true,
     children: [
       {
