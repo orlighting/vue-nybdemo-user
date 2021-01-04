@@ -6,8 +6,8 @@
 
         <el-form :model="declareForm" status-icon label-width="30px" class="demo-ruleForm" style="padding-right: 30px" enctype='multipart/form-data'>
           <div class="helpinfo">
-            <p><span class="wrtext">本申报适用于未加入展会计划的申报！已加入计划的请使用简易申报！</span></p>
-            <p><font class="hptext">请认真填写展会活动登记表，所有选项均为必填，没有请填无，提交后未经审核无法修改</font></p>
+            <p><span class="wrtext">本申报适用于已加入展会计划的申报！</span></p>
+            <p><font class="hptext">请认真填写展会活动登记表，提交后未经审核无法修改</font></p>
           </div>
 
           <div style="padding: 18px; transform: translateY(20%)">
@@ -59,12 +59,12 @@
             </el-col>
           </el-row>
 					<el-form-item enctype="multipart/form-data">
-						<div class="authorizeFile"> 
+						<div class="authorizeFile">
 							<label class="xrequired">去年审批文件</label><br />
-							<input type="file" ref="authorizeFile"  
+							<input type="file" ref="authorizeFile"
               accept=".pdf" name="authorizeFile"></input>
 						</div>
-	
+
 					</el-form-item>
           <div style="padding: 18px">
             <label class="kindsfont">三、举办计划</label>
@@ -181,7 +181,7 @@
             oninput="if(value.length > 8) value = value.slice(0,8)"
                       placeholder="请填写纯数字，默认单位‘万元’"></el-input>
           </el-form-item>
-          
+
 
           <div style="padding: 18px">
             <label class="kindsfont">五、拟邀请领导情况</label>
@@ -225,11 +225,11 @@
               </p>
             </el-col>
           </el-form-item>
-					
+
 					<el-form-item enctype="multipart/form-data">
-						<div class="inputFile1"> 
+						<div class="inputFile1">
 							<label class="xrequired">展会工作方案</label><br />
-							<input type="file" ref="inputFile1"  
+							<input type="file" ref="inputFile1"
               accept=".pdf" name="preExpoFile"></input>
 						</div>
 
@@ -237,7 +237,7 @@
 							<label class="xrequired">招展招商方案</label><br/>
 							<input type="file" ref="inputFile2"  accept=".pdf" name="investmentPlanFile"></input>
 						</div>
-						
+
 					</el-form-item>
               <!-- <form enctype='multipart/form-data' action="http://192.168.1.101:8445/api/handin/detail" method="post" target="#">
                 <input type="file" name='preExpoFile' accept=".pdf"  ref="inputFile1">
@@ -325,7 +325,7 @@ export default {
             }
 
 
-    })        
+    })
 
       }
     })
@@ -444,7 +444,7 @@ export default {
         });
         this.$refs.finanFund.focus();
         return false;
-      }      
+      }
       let ip0 = this.$refs.authorizeFile;
       let ip1 = this.$refs.inputFile1;
       let ip2 = this.$refs.inputFile2;

@@ -39,7 +39,7 @@
               </el-form-item>
               <el-form-item>
                 <el-button class="subBtn" type="primary" v-on:click="submitForm"
-                  >登录</el-button
+                >登录</el-button
                 >
               </el-form-item>
               <p class="smalltxt"></p>
@@ -84,10 +84,8 @@ export default {
   methods: {
     submitForm() {
       // let that = this
-
       // that.$store.dispatch("setToken", that.loginForm.id).then(() => {
       //   that.$router.push({path: "/"})
-
       // }).catch(res => {
       //   that.$message({
       //     showClose: true,
@@ -112,8 +110,7 @@ export default {
           .then((successResponse) => {
             if (successResponse.data.code === 0) {
               that.$store.dispatch("setUserKind", successResponse.data.data.kind);
-              console.log(successResponse.data)
-              console.log(successResponse.data.data.kind)
+              that.$store.dispatch("setFlash", false);
               // 将 id 设置为 token 存储在 store，仅为测试效果，实际存储 token 以后台返回为准
               that.$store
                 .dispatch("setToken", that.loginForm.meetAddr)
@@ -137,7 +134,7 @@ export default {
           })
           .catch((failResponse) => {});
       }
-      
+
     },
   },
   mounted() {
@@ -169,20 +166,16 @@ export default {
       }
     }
   }
-
   .loginBox {
     .iconcolor {
       color: #409eff;
     }
-
     padding: 74px 0 118px;
-
     .loginCon {
       width: 990px;
       margin: auto;
       position: relative;
       height: 388px;
-
       .el-card__header {
         border-bottom: 0px;
       }
@@ -206,23 +199,18 @@ export default {
         border: none;
         position: absolute;
         right: 0;
-
         .formTitlt {
           font-size: 18px;
           font-weight: 400;
-
           .titIconbox {
             float: right;
-
             .pointer {
               cursor: pointer;
             }
           }
         }
-
         .smalltxt {
           text-align: right;
-
           .a {
             text-decoration: none;
             color: #999999;
@@ -231,23 +219,19 @@ export default {
           }
         }
       }
-
       .el-form-item__content {
         margin-left: 0px !important;
-
         .subBtn {
           width: 100%;
         }
       }
     }
-
     .el-input__inner,
     .el-button,
     .el-card,
     .el-message {
       border-radius: 0px !important;
     }
-
     .el-form-item__content .ico {
       position: absolute;
       top: 0px;
@@ -258,32 +242,26 @@ export default {
       text-align: center;
       border-right: 1px solid #ccc;
     }
-
     .ewmbox {
       width: 100%;
       height: 240px;
       margin-top: -25px;
-
       .ewm {
         width: 140px;
         height: 140px;
         margin: 20px auto;
-
         p {
           font-size: 12px;
           padding-left: 40px;
           margin: 0;
         }
       }
-
       .ewmicon {
         width: 140px;
         margin: 20px auto 0;
-
         .iconfont {
           float: left;
         }
-
         p {
           font-size: 12px;
           padding-left: 40px;

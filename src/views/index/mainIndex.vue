@@ -82,40 +82,24 @@ export default {
   components: {
     detailExhiList,
     easyExhiList,
-  }, 
+  },
 
+  watch:{
+    '$store.getters.checkState':function(){ //监听vuex
+      if(this.$store.getters.flash == false) {
+        this.$store.dispatch("setFlash", true);
+        location.reload();
+      }
+    }
+  },
 
   created() {
-
-    Cookies.remove("checkState");
-    getDetail(this.$store.getters.token).then(res => {
-      // console.log(res.data.checkState)
-      if(res.data){
-        this.$store.dispatch('setState', res.data.checkState)
-
-        
-      }else{
-        this.$store.dispatch('setState', 0)
-
-        
-      }
-      console.log(this.$store.getters.checkState);
-    });
-    console.log(this.$store.getters.checkState);
-    
-    // this.$axios
-    // 		.post('/message/notLookCount', {
-    // 			userId: this.$store.getters.token,
-
-    // 		})
-    // 		.then(successResponse => {
-    //             console.log(successResponse)
-    //         })
 
     getNotLookCount(this.$store.getters.token).then((res) => {
       //   console.log(res)
       this.msgCount = res.data;
     });
+
   },
 
   destroyed() {},

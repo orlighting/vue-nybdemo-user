@@ -10,7 +10,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
     token: Cookies.get("token"),
-    face: Cookies.get("face"),
+    flash: Cookies.get("flash"),
     userKind:Cookies.get("userKind"),
     // checkState:null
     checkState:Cookies.get("checkState")
@@ -24,9 +24,9 @@ const store = new Vuex.Store({
       state.userKind = userKind
       Cookies.set("userKind", userKind, { expires: 1 / 24 })
     },
-    setFace (state, face) {
-      state.face = face
-      Cookies.set("face", face, { expires: 1 / 24 })
+    setFlash (state, flash) {
+      state.flash = flash
+      Cookies.set("flash", flash, { expires: 1 / 24 })
     },
     setState (state, checkState) {
       state.checkState = checkState
@@ -47,9 +47,9 @@ const store = new Vuex.Store({
         resolve()
       })
     },
-    setFace ({commit}, face) {
+    setFlash ({commit}, flash) {
       return new Promise((resolve, reject) => {
-        commit("setFace", face)
+        commit("setFlash", flash)
         resolve()
       })
     },
@@ -65,7 +65,7 @@ const store = new Vuex.Store({
     addRouters: state => state.routerData.addRouters,
     token: state => state.token,
     userKind: state => state.userKind,
-    face: state => state.face,
+    flash: state => state.flash,
     info: state => state.role.info,
     routers: state => state.routerData.routers,
     logoShow: state => state.layout.logoShow,
