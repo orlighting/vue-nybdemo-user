@@ -2,7 +2,7 @@ import axios from 'axios'
 export function request(config){
 	// 1.创建axios的实例
 	const instance = axios.create({
-		baseURL: "http://10.28.251.188:8445/api",
+		baseURL: "http://8.131.56.110:8445/api",
 		// baseURL : 'http://192.168.43.226:8445/api',
 		timeout: 5000
 	})

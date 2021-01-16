@@ -293,7 +293,6 @@ export default {
       axios
         .post("http://8.131.56.110:8445/api/handin/summary", formdata)
         .then((successResponse) => {
-          console.log(successResponse)
           if (successResponse.data.code === 0) {
             this.$router.push("/").catch(() => {});
           } else if (successResponse.data.code === 6001) {

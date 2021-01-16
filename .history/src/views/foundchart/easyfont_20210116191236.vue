@@ -280,15 +280,15 @@
 </template>
 
 <script>
-import { getEasy } from "../../network/getForm";
-import { getDetail } from "../../network/getForm";
+import { getEasy } from '../../network/getForm';
+import {getDetail} from '../../network/getForm';
 
-import chooseCity from "../../components/common/chooseCity/chooseCity";
+import chooseCity from '../../components/common/chooseCity/chooseCity'
 export default {
   name: "easyfont",
   data() {
     return {
-      chooseCityTag: "黑龙江省-佳木斯市-抚远县",
+      chooseCityTag:'黑龙江省-佳木斯市-抚远县',
       declareForm: {
         name: "",
         hostComp: "",
@@ -298,7 +298,7 @@ export default {
         authObj: "",
         authNum: "",
         place: "",
-        Times: [],
+        Times:[],
         cycle: "",
         area: "",
         meetState: "",
@@ -309,7 +309,7 @@ export default {
         willInvite: "",
         capitalSource: "",
         finanfrom: "",
-        orderComp: "",
+        orderComp:'',
         finanFund: "",
         selfFund: "",
         //填报单位
@@ -328,59 +328,47 @@ export default {
       },
     };
   },
-  components: {
-    chooseCity,
+  components:{
+    chooseCity
   },
-  created() {
-    getEasy(this.$store.getters.token).then((res) => {
+  created(){
+    getEasy(this.$store.getters.token).then(res => {
       // console.log(res.data)
-      if (res.data) {
-        if (!res.data.summaryDone) {
-          alert("请先完成上报总结");
-          this.$router.push("handin");
+      if(res.data){
+      if(!res.data.summaryDone){
+        alert('请先完成上报总结');
+        this.$router.push('handin')
+
         }
-        (this.declareForm = res.data),
-          (this.declareForm.leaderN = parseInt(res.data.leaderState / 10000)),
-          (this.declareForm.leaderF = parseInt(
-            (res.data.leaderState % 10000) / 10
-          )),
-          (this.declareForm.leaderA = parseInt(
-            (res.data.leaderState % 1000) / 10
-          )),
-          (this.declareForm.leaderP = parseInt(
-            (res.data.leaderState % 100) / 10
-          )),
-          (this.declareForm.leaderD = parseInt(res.data.leaderState % 10)),
-          (this.declareForm.Times = [res.data.startTime, res.data.endTime]),
-          (this.chooseCityTag = res.data.chooseCity);
-        console.log(this.declareForm);
-      } else {
-        getDetail(this.$store.getters.token).then((res) => {
-          if (res.data) {
-            if (!res.data.summaryDone) {
-              alert("请先完成上报总结");
-              this.$router.push("handin");
+      this.declareForm = res.data,
+      this.declareForm.leaderN = parseInt(res.data.leaderState/10000),
+      this.declareForm.leaderF= parseInt((res.data.leaderState%10000)/10),
+      this.declareForm.leaderA= parseInt((res.data.leaderState%1000)/10),
+      this.declareForm.leaderP= parseInt((res.data.leaderState%100)/10),
+      this.declareForm.leaderD= parseInt(res.data.leaderState%10),
+      this.declareForm.Times = [res.data.startTime,res.data.endTime],
+      this.chooseCityTag = res.data.chooseCity
+      console.log(this.declareForm)
+
+      }else{
+          getDetail(this.$store.getters.token).then(res => {
+            if(res.data){
+            this.declareForm = res.data,
+            this.declareForm.leaderN = parseInt(res.data.leaderState/10000),
+            this.declareForm.leaderF= parseInt((res.data.leaderState%10000)/10),
+            this.declareForm.leaderA= parseInt((res.data.leaderState%1000)/10),
+            this.declareForm.leaderP= parseInt((res.data.leaderState%100)/10),
+            this.declareForm.leaderD= parseInt(res.data.leaderState%10),
+            this.declareForm.Times = [res.data.startTime,res.data.endTime],
+            console.log(this.declareForm)
             }
-            (this.declareForm = res.data),
-              (this.declareForm.leaderN = parseInt(
-                res.data.leaderState / 10000
-              )),
-              (this.declareForm.leaderF = parseInt(
-                (res.data.leaderState % 10000) / 10
-              )),
-              (this.declareForm.leaderA = parseInt(
-                (res.data.leaderState % 1000) / 10
-              )),
-              (this.declareForm.leaderP = parseInt(
-                (res.data.leaderState % 100) / 10
-              )),
-              (this.declareForm.leaderD = parseInt(res.data.leaderState % 10)),
-              (this.declareForm.Times = [res.data.startTime, res.data.endTime]),
-              console.log(this.declareForm);
-          }
-        });
+
+
+    })
+
       }
-    });
+    })
+
   },
   computed: {
     leaderPresent() {
@@ -500,7 +488,7 @@ export default {
       let ip1 = this.$refs.inputFile1;
       let ip2 = this.$refs.inputFile2;
       var formdata = new FormData();
-      if (!ip0.files[0]) {
+      if (!(ip0.files[0])) {
         this.$message({
           showClose: true,
           message: "请填写去年审批文件！",
@@ -509,7 +497,7 @@ export default {
         this.$refs.authorizeFile.focus();
         return false;
       }
-      if (!ip1.files[0]) {
+      if (!(ip1.files[0])) {
         this.$message({
           showClose: true,
           message: "请填写展会工作方案！",
@@ -518,7 +506,7 @@ export default {
         this.$refs.inputFile1.focus();
         return false;
       }
-      if (!ip2.files[0]) {
+      if (!(ip2.files[0])) {
         this.$message({
           showClose: true,
           message: "请填写招展招商方案！",
@@ -571,7 +559,7 @@ export default {
       formdata.append("leaderState", this.leaderPresent);
       //同期活动
       formdata.append("activityBrief", this.declareForm.activityBrief);
-      //填报单位
+            //填报单位
       formdata.append("writeObject", this.declareForm.writeObject);
       //负责处室
       formdata.append("department", this.declareForm.department);
@@ -607,21 +595,21 @@ export default {
       //   })
       //   .catch((failResponse) => {});
 
-      var axios = require("axios");
-      axios
-        .post("http://8.131.56.110:8445/api/handin/easy", formdata)
-        .then((successResponse) => {
-          if (successResponse.data.code === 0) {
-            this.$router.push("/").catch(() => {});
-          } else {
-            this.$message({
-              showClose: true,
-              message: "提交失败！",
-              type: "error",
-            });
-          }
-        })
-        .catch((failResponse) => {});
+        var axios = require("axios");
+        axios
+          .post("http://8.131.56.110:8445/api/handin/easy", formdata)
+          .then((successResponse) => {
+            if (successResponse.data.code === 0) {
+              this.$router.push("/").catch(() => {});
+            } else {
+              this.$message({
+                showClose: true,
+                message: "提交失败！",
+                type: "error",
+              });
+            }
+          })
+          .catch((failResponse) => {});
     },
   },
 };
@@ -736,9 +724,10 @@ $list1: $bluee $pinkk $yelloww $grennn $purplee $lightBluee;
 .chartArea {
   margin-bottom: 15px;
 }
-.filePlc {
+.filePlc{
   display: flex;
   flex: 1;
+
 }
 .timeMid {
   width: 20px;
@@ -750,19 +739,20 @@ $list1: $bluee $pinkk $yelloww $grennn $purplee $lightBluee;
   padding-left: 10px;
 }
 .Context:after {
-  content: "*";
-  color: red;
-  position: absolute;
-  top: 50px;
-  left: 6px;
+content: "*";
+color: red;
+position: absolute;
+top: 50px;
+left: 6px;
 }
 label.xrequired:after {
-  content: "*";
-  color: red;
-  font-size: 25px;
-  position: relative;
-  top: 8px;
-  margin-left: 3px;
+content: "*";
+color: red;
+font-size: 25px;
+position: relative;
+top: 8px;
+margin-left: 3px;
+
 }
 </style>
 
