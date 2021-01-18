@@ -247,7 +247,7 @@ export default {
       formdata.append("kind", this.$store.getters.userKind);
       formdata.append("detailId", this.declareForm.detailId);
 
-      formdata.append("meetAddr", this.$store.getters.token);
+      formdata.append("meetAddr", this.$store.getters.meetId);
 
       // 参展国家数量
       formdata.append("countryNum", this.declareForm.companyNum);

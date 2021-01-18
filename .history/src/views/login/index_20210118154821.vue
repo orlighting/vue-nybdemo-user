@@ -110,10 +110,10 @@ export default {
           .then((successResponse) => {
             
             if (successResponse.data.code === 0) {
-              if(!successResponse.data.data.isFreeze){
+              if(successResponse.data.data.isFreeze){
                 alert('该账号已被冻结，请联系管理人员进行处理');
-              }else{
-                              that.$store.dispatch("setUserKind", successResponse.data.data.kind);
+              }
+              that.$store.dispatch("setUserKind", successResponse.data.data.kind);
               that.$store.dispatch("setFlash", false);
               
               // 将 id 设置为 token 存储在 store，仅为测试效果，实际存储 token 以后台返回为准
@@ -129,8 +129,6 @@ export default {
                     type: "error",
                   });
                 });
-              }
-
             } else {
               this.$message({
                 showClose: true,
